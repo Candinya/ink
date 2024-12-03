@@ -17,7 +17,7 @@ const letterVariantProps = {
   onscreen: { opacity: 1, y: 0 },
 };
 
-const SecondScreen = () => {
+const Saying = () => {
   // 定义文本
   const line1 = "这里是一句可能会非常非常长的话，我也不知道写什么好。";
   const line2 = "——作者";
@@ -56,4 +56,4 @@ const SecondScreen = () => {
   );
 };
 
-export default SecondScreen;
+export default Saying;

@@ -2,7 +2,7 @@
 
 import MeteorsRain from "./MeteorsRain";
 import FirstScreen from "./FirstScreen";
-import SecondScreen from "./SecondScreen";
+import Saying from "./Saying";
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
 
@@ -37,7 +37,7 @@ const Intro = () => {
       <FirstScreen />
 
       {/*第二屏，用来放置 一句话 的动画*/}
-      <SecondScreen />
+      <Saying />
 
       {/*第三屏，空的，用于填充空间，给背景足够长的淡化时间（滚动）*/}
       <div className="h-[50vh]" />
