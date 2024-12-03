@@ -19,8 +19,8 @@ const letterVariantProps = {
 
 const Saying = () => {
   // 定义文本
-  const line1 = "这里是一句可能会非常非常长的话，我也不知道写什么好。";
-  const line2 = "——作者";
+  const mainParagraph = "愿人人皆可到达内心中的应许之地。";
+  const subParagraph = "Nya Candy\n2024.12.03";
 
   return (
     <div className="h-[200vh]">
@@ -34,20 +34,34 @@ const Saying = () => {
               variants={sentenceVariantProps}
               viewport={{ once: true, amount: 0.8 }}
             >
-              <p className="text-4xl lg:text-5xl font-semibold text-white">
-                {line1.split("").map((c, i) => (
-                  <motion.span key={`${c}-${i}`} variants={letterVariantProps}>
-                    {c}
-                  </motion.span>
+              <div className="text-4xl lg:text-5xl font-semibold text-white">
+                {mainParagraph.split("\n").map((line, i) => (
+                  <p key={`${line}-${i}`}>
+                    {line.split("").map((c, i) => (
+                      <motion.span
+                        key={`${c}-${i}`}
+                        variants={letterVariantProps}
+                      >
+                        {c}
+                      </motion.span>
+                    ))}
+                  </p>
                 ))}
-              </p>
-              <span className="text-xl lg:text-2xl font-light text-gray-400 self-end italic">
-                {line2.split("").map((c, i) => (
-                  <motion.span key={`${c}-${i}`} variants={letterVariantProps}>
-                    {c}
-                  </motion.span>
+              </div>
+              <div className="text-xl lg:text-2xl font-light text-gray-400 self-end italic">
+                {subParagraph.split("\n").map((line, i) => (
+                  <p key={`${line}-${i}`}>
+                    {line.split("").map((c, i) => (
+                      <motion.span
+                        key={`${c}-${i}`}
+                        variants={letterVariantProps}
+                      >
+                        {c}
+                      </motion.span>
+                    ))}
+                  </p>
                 ))}
-              </span>
+              </div>
             </motion.div>
           </div>
         </div>
