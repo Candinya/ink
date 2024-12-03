@@ -28,11 +28,11 @@ const SecondScreen = () => {
         <div className="grow w-full flex flex-col justify-center overflow-clip">
           <div className="h-full max-w-3xl xl:max-w-6xl p-8 mx-auto flex flex-col justify-center items-center">
             <motion.div
-              className="flex flex-col gap-4 py-12"
+              className="h-full flex flex-col gap-4 justify-center"
               initial="offscreen"
               whileInView="onscreen"
               variants={sentenceVariantProps}
-              viewport={{ once: true, amount: 1.0 }}
+              viewport={{ once: true, amount: 0.8 }}
             >
               <p className="text-4xl lg:text-5xl font-semibold text-white">
                 {line1.split("").map((c, i) => (
