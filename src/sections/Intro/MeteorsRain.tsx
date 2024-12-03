@@ -80,42 +80,40 @@ const MeteorsRain = () => {
       className="w-screen h-screen fixed top-0 left-0 flex items-center overflow-hidden z-0 opacity-75" // 定宽定高
     >
       {meteors.map((meteor) => (
-        <MeterMap key={meteor.initialX + "meteor-idx"} meteorOptions={meteor} />
+        <Meter key={meteor.initialX + "meteor-idx"} meteorOptions={meteor} />
       ))}
     </div>
   );
 };
 
-interface MeteorMapProps {
+interface MeteorProps {
   meteorOptions: MeteorOptions;
 }
-const MeterMap = ({ meteorOptions }: MeteorMapProps) => (
-  <>
-    <motion.div
-      animate="animate"
-      initial={{
-        translateY: meteorOptions.initialY || "-200px",
-        translateX: meteorOptions.initialX || "0px",
+const Meter = ({ meteorOptions }: MeteorProps) => (
+  <motion.div
+    animate="animate"
+    initial={{
+      translateY: meteorOptions.initialY || "-200px",
+      translateX: meteorOptions.initialX || "0px",
+      rotate: meteorOptions.rotate || 0,
+    }}
+    variants={{
+      animate: {
+        translateY: meteorOptions.translateY || "1800px",
+        translateX: meteorOptions.translateX || "0px",
         rotate: meteorOptions.rotate || 0,
-      }}
-      variants={{
-        animate: {
-          translateY: meteorOptions.translateY || "1800px",
-          translateX: meteorOptions.translateX || "0px",
-          rotate: meteorOptions.rotate || 0,
-        },
-      }}
-      transition={{
-        duration: meteorOptions.duration || 8,
-        repeat: Infinity,
-        repeatType: "loop",
-        ease: "linear",
-        delay: meteorOptions.delay || 0,
-        repeatDelay: meteorOptions.repeatDelay || 0,
-      }}
-      className={`absolute left-0 top-20 m-auto w-px rounded-full bg-gradient-to-t from-sky-500 via-purple-500 to-transparent ${meteorOptions.className}`}
-    />
-  </>
+      },
+    }}
+    transition={{
+      duration: meteorOptions.duration || 8,
+      repeat: Infinity,
+      repeatType: "loop",
+      ease: "linear",
+      delay: meteorOptions.delay || 0,
+      repeatDelay: meteorOptions.repeatDelay || 0,
+    }}
+    className={`absolute left-0 top-20 m-auto w-px rounded-full bg-gradient-to-t from-sky-500 via-purple-500 to-transparent ${meteorOptions.className}`}
+  />
 );
 
 export default MeteorsRain;
