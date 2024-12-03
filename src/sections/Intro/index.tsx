@@ -4,7 +4,7 @@ import MeteorsRain from "./MeteorsRain";
 import FirstScreen from "./FirstScreen";
 import SecondScreen from "./SecondScreen";
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useInView, useScroll, useTransform } from "motion/react";
 
 const Intro = () => {
   // 向下滚动半屏时整体逐渐淡化消失
@@ -14,6 +14,9 @@ const Intro = () => {
     offset: ["start end", "end end"],
   });
   const fadeOutTransform = useTransform(scrollYProgress, [0.8, 1], [1, 0]);
+
+  // 检查当前章节是否可见
+  const isInView = useInView(scrollContainerRef);
 
   return (
     <motion.div
@@ -27,7 +30,8 @@ const Intro = () => {
       }}
     >
       {/*流星雨*/}
-      <MeteorsRain />
+      {/*章节不可见时销毁以节省资源（动画一直在操作 DOM ，可能会产生一些性能损失）*/}
+      {isInView && <MeteorsRain />}
 
       {/*第一屏，用来做主题展示*/}
       <FirstScreen />
