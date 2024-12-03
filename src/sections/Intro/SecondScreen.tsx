@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "motion/react";
-import { type MouseEvent, useRef } from "react";
+import { useRef } from "react";
 
 const SecondScreen = () => {
   // 滚动触发动画
@@ -24,24 +24,12 @@ const SecondScreen = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const childRef = useRef<HTMLDivElement>(null);
 
-  // 跟随鼠标微微偏移
-  const handleMouseMove = (ev: MouseEvent<HTMLDivElement>) => {
-    if (!containerRef.current || !childRef.current) return; // 没有追踪到任何东西
-    const { left, top, width, height } =
-      containerRef.current.getBoundingClientRect();
-
-    const x = ((ev.clientX - left - width / 2) / width) * 10;
-    const y = ((ev.clientY - top - height / 2) / width) * 10;
-    childRef.current.style.transform = `translateX(${x}px) translateY(${y}px)`;
-  };
-
   return (
     <div ref={scrollContainerRef} className="h-[400vh]">
       <div className="h-screen sticky top-0 w-full flex flex-col items-center">
         <div
           ref={containerRef}
           className="grow w-full flex flex-col justify-center overflow-clip"
-          // onMouseMove={handleMouseMove}
         >
           <div
             ref={childRef}
