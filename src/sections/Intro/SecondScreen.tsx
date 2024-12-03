@@ -13,12 +13,12 @@ const SecondScreen = () => {
   const mainOpacityTransition = useTransform(
     scrollYProgress,
     [0, 0.15, 0.5, 1],
-    [0, 1, 1, 0],
+    [0, 1, 1, 1],
   ); // 滚动到 1/3 时完全出现， 2/3 不到一点时开始消失
   const subOpacityTransition = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.6, 1],
-    [0, 0, 1, 0],
+    [0, 0.2, 0.5, 1],
+    [0, 0, 1, 1],
   ); // 稍微晚一点出现
 
   const containerRef = useRef<HTMLDivElement>(null);
