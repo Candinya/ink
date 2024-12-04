@@ -36,7 +36,7 @@ const CandyMade = () => {
   }
 
   return (
-    <ul className="grid grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+    <ul className="grid grid-cols-2 lg:grid-cols-4 gap-8 px-4 w-fit mx-auto">
       {data.map((project: CandyMadeProjectInfo) => (
         <li key={project.id} className="h-full">
           <a

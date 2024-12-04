@@ -42,12 +42,14 @@ const SkillDeveloper = () => {
   const projectsOwnTransform = useTransform(
     scrollYProgress,
     [0.65, 0.75, 0.85, 0.95],
-    [0, 1, 1, 0],
+    // [0, 1, 1, 0], // 这个配置模式下最后会淡出
+    [0, 1, 1, 1], // 这个配置模式下最后不会淡出
   );
   const projectsContributeTransform = useTransform(
     scrollYProgress,
     [0.75, 0.85, 0.95],
-    [0, 1, 0],
+    // [0, 1, 0], // 同上
+    [0, 1, 1],
   );
 
   return (
