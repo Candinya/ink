@@ -29,10 +29,9 @@ const SectionTitle = ({ title }: SectionTitleProps) => {
         >
           {/*标题图标*/}
           <IconSectionSign
-            className="absolute -left-12 lg:-left-14 size-12 lg:size-16 text-gray-400 transition-opacity"
+            className="absolute -left-12 lg:-left-14 size-12 lg:size-16 text-gray-400 transition-opacity duration-500"
             style={{
               opacity: isNotScrollUp ? 0 : 1,
-              transitionDuration: isNotScrollUp ? "0ms" : "500ms",
               transitionDelay: isNotScrollUp ? "0ms" : "800ms",
             }}
           />
