@@ -11,8 +11,17 @@ const CandyMade = () => {
   // 拉取项目信息
   const { isPending, error, data } = useQuery({
     queryKey: ["repoData"],
-    queryFn: () =>
-      fetch("https://candymade.net/data.json").then((res) => res.json()),
+    queryFn: async () => {
+      const res = await fetch("https://candymade.net/data.json");
+      const allProjects: CandyMadeProjectInfo[] = await res.json();
+      // 随机取出 4 个项目
+      const selectedProjects = [];
+      for (let i = 0; i < 4; i++) {
+        const selectedIndex = Math.floor(Math.random() * allProjects.length);
+        selectedProjects.push(...allProjects.splice(selectedIndex, 1));
+      }
+      return selectedProjects;
+    },
   });
 
   if (isPending) {
@@ -25,12 +34,16 @@ const CandyMade = () => {
   }
 
   return (
-    <ul className="flex flex-row gap-8">
+    <ul className="grid grid-cols-2 lg:grid-cols-4 gap-8 px-4">
       {data.map((project: CandyMadeProjectInfo) => (
-        <li key={project.id}>
-          <a href={`https://candymade.net/${project.id}`} target="_blank">
+        <li key={project.id} className="h-full">
+          <a
+            href={`https://candymade.net/${project.id}`}
+            target="_blank"
+            className="h-full"
+          >
             <motion.div
-              className="px-6 py-4 rounded-3xl shadow-2xl"
+              className="h-full px-6 py-4 rounded-3xl border-2 border-gray-300 shadow-xl flex flex-col justify-around bg-background"
               initial={{
                 y: 0,
               }}
@@ -49,9 +62,9 @@ const CandyMade = () => {
                   alt={project.name}
                   width={128}
                   height={128}
-                  className="rounded-2xl"
+                  className="rounded-2xl size-20 lg:size-24 xl:size-32"
                 />
-                <span className="font-normal lg:font-semibold text-base lg:text-xl">
+                <span className="font-normal lg:font-semibold text-sm md:text-base lg:text-xl">
                   {project.name}
                 </span>
               </motion.div>
