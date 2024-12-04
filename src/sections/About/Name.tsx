@@ -11,7 +11,7 @@ interface CellProps {
 }
 const Cell = ({ text, main, opacity }: CellProps) => (
   <motion.div
-    className={`text-3xl lg:text-4xl ${main ? "font-semibold" : "text-right"}`}
+    className={main ? "font-semibold" : "text-right"}
     initial={{
       opacity: 0,
     }}
@@ -66,7 +66,7 @@ const Name = () => {
   return (
     <div ref={scrollContainerRef} className="h-[400vh] w-full">
       <div className="sticky top-0 w-full h-screen max-w-3xl xl:max-w-6xl p-8 mx-auto flex flex-col justify-center items-center">
-        <div className="grid grid-cols-2 grid-rows-3 gap-x-4 gap-y-6">
+        <div className="grid grid-cols-2 grid-rows-3 gap-x-4 gap-y-6 text-3xl lg:text-4xl">
           {/*公式名*/}
           <Cell text={"我的名字是"} opacity={fadeInTransformCell11} />
           <Cell
