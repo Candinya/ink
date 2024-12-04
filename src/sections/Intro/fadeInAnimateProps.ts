@@ -1,5 +1,7 @@
+import type { Variants } from "motion/react";
+
 // 渐入的特效参数
-export const fadeInContainerVariantProps = {
+export const fadeInContainerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -7,7 +9,7 @@ export const fadeInContainerVariantProps = {
     },
   },
 };
-export const fadeInMembersVariantProps = {
+export const fadeInMembersVariants: Variants = {
   hidden: {
     y: 10,
     opacity: 0,

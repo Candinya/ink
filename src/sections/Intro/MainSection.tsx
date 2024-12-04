@@ -1,6 +1,6 @@
 "use client";
 
-import { fadeInMembersVariantProps } from "./fadeInAnimateProps";
+import { fadeInMembersVariants } from "./fadeInAnimateProps";
 import Image from "next/image";
 import { motion } from "motion/react";
 
@@ -9,7 +9,7 @@ const MainSection = () => {
     <div className="grow w-full flex flex-col justify-center">
       <div className="w-full h-full lg:max-w-4xl 2xl:max-w-6xl p-8 mx-auto flex flex-col lg:flex-row-reverse justify-center lg:justify-between items-center gap-16 z-10">
         {/*头像*/}
-        <motion.div variants={fadeInMembersVariantProps}>
+        <motion.div variants={fadeInMembersVariants}>
           <Image
             src={"/avatar.webp"}
             width={256}
@@ -24,7 +24,7 @@ const MainSection = () => {
         <div className="flex flex-col gap-12 lg:gap-8 text-center lg:text-left">
           {/*主标题*/}
           <motion.h1
-            variants={fadeInMembersVariantProps}
+            variants={fadeInMembersVariants}
             className="text-5xl md:text-6xl lg:text-7xl font-bold text-white"
           >
             寻
@@ -36,7 +36,7 @@ const MainSection = () => {
 
           {/*副标题*/}
           <motion.h2
-            variants={fadeInMembersVariantProps}
+            variants={fadeInMembersVariants}
             className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-400"
           >
             循此前行，终至尘星

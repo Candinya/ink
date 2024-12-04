@@ -2,7 +2,7 @@
 
 import MainSection from "./MainSection";
 import { motion, useScroll, useTransform } from "motion/react";
-import { fadeInContainerVariantProps } from "./fadeInAnimateProps";
+import { fadeInContainerVariants } from "./fadeInAnimateProps";
 import { useRef } from "react";
 
 const FirstScreen = () => {
@@ -29,7 +29,7 @@ const FirstScreen = () => {
         className="min-h-screen sticky top-0 w-full flex flex-col items-center"
         initial="hidden"
         animate="visible"
-        variants={fadeInContainerVariantProps}
+        variants={fadeInContainerVariants}
       >
         {/*主体内容*/}
         <MainSection />

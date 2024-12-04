@@ -1,10 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
+import type { Variants } from "motion/react";
 
 // 动效参考自 https://brad-carter.medium.com/how-to-animate-a-text-reveal-effect-in-react-with-framer-motion-ae8ddd296f0d
 
-const sentenceVariantProps = {
+const sentenceVariants: Variants = {
   offscreen: {},
   onscreen: {
     transition: {
@@ -13,7 +14,7 @@ const sentenceVariantProps = {
   },
 };
 
-const letterVariantProps = {
+const letterVariants: Variants = {
   offscreen: { opacity: 0 },
   onscreen: { opacity: 1 },
 };
@@ -29,7 +30,7 @@ const Saying = () => {
         className="min-h-screen sticky top-0 w-full flex flex-col items-center"
         initial="offscreen"
         whileInView="onscreen"
-        variants={sentenceVariantProps}
+        variants={sentenceVariants}
         viewport={{ once: true, amount: 1.0 }}
       >
         <div className="grow w-full flex flex-col justify-center overflow-clip">
@@ -39,10 +40,7 @@ const Saying = () => {
                 {mainParagraph.split("\n").map((line, i) => (
                   <p key={`${line}-${i}`}>
                     {line.split("").map((c, i) => (
-                      <motion.span
-                        key={`${c}-${i}`}
-                        variants={letterVariantProps}
-                      >
+                      <motion.span key={`${c}-${i}`} variants={letterVariants}>
                         {c}
                       </motion.span>
                     ))}
@@ -53,10 +51,7 @@ const Saying = () => {
                 {subParagraph.split("\n").map((line, i) => (
                   <p key={`${line}-${i}`}>
                     {line.split("").map((c, i) => (
-                      <motion.span
-                        key={`${c}-${i}`}
-                        variants={letterVariantProps}
-                      >
+                      <motion.span key={`${c}-${i}`} variants={letterVariants}>
                         {c}
                       </motion.span>
                     ))}
