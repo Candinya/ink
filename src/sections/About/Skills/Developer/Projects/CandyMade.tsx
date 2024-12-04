@@ -2,6 +2,8 @@ import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "motion/react";
 
+import { candyMadeURL } from "./constants";
+
 interface CandyMadeProjectInfo {
   id: string;
   name: string;
@@ -12,11 +14,11 @@ const CandyMade = () => {
   const { isPending, error, data } = useQuery({
     queryKey: ["repoData"],
     queryFn: async () => {
-      const res = await fetch("https://candymade.net/data.json");
+      const res = await fetch(`${candyMadeURL}/data.json`);
       const allProjects: CandyMadeProjectInfo[] = await res.json();
       // 随机取出 4 个项目
       const selectedProjects = [];
-      for (let i = 0; i < 4; i++) {
+      for (let i = 0; i < 4 && allProjects.length > 0; i++) {
         const selectedIndex = Math.floor(Math.random() * allProjects.length);
         selectedProjects.push(...allProjects.splice(selectedIndex, 1));
       }
@@ -38,7 +40,7 @@ const CandyMade = () => {
       {data.map((project: CandyMadeProjectInfo) => (
         <li key={project.id} className="h-full">
           <a
-            href={`https://candymade.net/${project.id}`}
+            href={`${candyMadeURL}/${project.id}`}
             target="_blank"
             className="h-full"
           >
@@ -58,7 +60,7 @@ const CandyMade = () => {
             >
               <motion.div className="flex flex-col gap-4 items-center">
                 <Image
-                  src={`https://candymade.net${project.logo}`}
+                  src={`${candyMadeURL}${project.logo}`}
                   alt={project.name}
                   width={128}
                   height={128}
