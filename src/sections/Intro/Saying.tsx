@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import type { Variants } from "motion/react";
 
 // 动效参考自 https://brad-carter.medium.com/how-to-animate-a-text-reveal-effect-in-react-with-framer-motion-ae8ddd296f0d
+// TODO: 改成基于滚动进度的动画流（现在是基于时间的）
 
 const sentenceVariants: Variants = {
   offscreen: {},
