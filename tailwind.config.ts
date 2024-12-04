@@ -16,6 +16,7 @@ export default {
       },
       margin: {
         "screen/4": "25vh",
+        "screen/2": "50vh",
       },
     },
   },

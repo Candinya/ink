@@ -24,17 +24,17 @@ const Saying = () => {
   const subParagraph = "Nya Candy\n2024.12.03";
 
   return (
-    <div className="h-[200vh]">
-      <div className="h-screen sticky top-0 w-full flex flex-col items-center">
+    <div className="h-[150vh] -mt-screen/2">
+      <motion.div
+        className="min-h-screen sticky top-0 w-full flex flex-col items-center"
+        initial="offscreen"
+        whileInView="onscreen"
+        variants={sentenceVariantProps}
+        viewport={{ once: true, amount: 1.0 }}
+      >
         <div className="grow w-full flex flex-col justify-center overflow-clip">
-          <div className="h-full max-w-3xl xl:max-w-6xl p-8 mx-auto flex flex-col justify-center items-center">
-            <motion.div
-              className="h-full flex flex-col gap-4 justify-center"
-              initial="offscreen"
-              whileInView="onscreen"
-              variants={sentenceVariantProps}
-              viewport={{ once: true, amount: 1.0 }}
-            >
+          <div className="max-w-3xl xl:max-w-6xl p-8 mx-auto flex flex-col justify-center items-center">
+            <div className="flex flex-col gap-4 justify-center">
               <div className="text-4xl lg:text-5xl font-semibold text-white">
                 {mainParagraph.split("\n").map((line, i) => (
                   <p key={`${line}-${i}`}>
@@ -63,10 +63,10 @@ const Saying = () => {
                   </p>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
