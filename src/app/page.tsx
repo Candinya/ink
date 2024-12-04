@@ -3,7 +3,7 @@ import About from "@/sections/About";
 
 export default function Home() {
   return (
-    <>
+    <div className="bg-background">
       {/*引入*/}
       <Intro />
 
@@ -23,6 +23,6 @@ export default function Home() {
       {/*播放器*/}
 
       {/*特效*/}
-    </>
+    </div>
   );
 }

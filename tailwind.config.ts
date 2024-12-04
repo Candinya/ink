@@ -10,6 +10,7 @@ export default {
     extend: {
       colors: {
         theme: "#62b6e7",
+        background: "#fff",
       },
       height: {
         "screen/2": "50vh",
