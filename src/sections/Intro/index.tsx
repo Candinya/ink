@@ -44,7 +44,7 @@ const Intro = () => {
       <ScrollDown />
 
       {/*第三屏，空的，用于填充空间，给背景足够长的淡化时间（滚动）*/}
-      <div className="h-[50vh]" />
+      <div className="h-screen/2" />
     </motion.div>
   );
 };
