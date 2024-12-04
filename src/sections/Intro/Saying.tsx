@@ -2,10 +2,11 @@
 
 import { motion } from "motion/react";
 
+// 动效参考自 https://brad-carter.medium.com/how-to-animate-a-text-reveal-effect-in-react-with-framer-motion-ae8ddd296f0d
+
 const sentenceVariantProps = {
-  offscreen: { opacity: 1 },
+  offscreen: {},
   onscreen: {
-    opacity: 1,
     transition: {
       staggerChildren: 0.08,
     },
@@ -13,8 +14,8 @@ const sentenceVariantProps = {
 };
 
 const letterVariantProps = {
-  offscreen: { opacity: 0, y: 50 },
-  onscreen: { opacity: 1, y: 0 },
+  offscreen: { opacity: 0 },
+  onscreen: { opacity: 1 },
 };
 
 const Saying = () => {
