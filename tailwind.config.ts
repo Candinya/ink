@@ -13,6 +13,7 @@ export default {
         background: "#fff",
       },
       height: {
+        "screen/4": "25vh",
         "screen/2": "50vh",
       },
       margin: {
