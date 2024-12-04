@@ -1,10 +1,11 @@
 "use client";
 
+import { useRef } from "react";
+import { motion, useInView, useScroll, useTransform } from "motion/react";
 import MeteorsRain from "./MeteorsRain";
 import FirstScreen from "./FirstScreen";
 import Saying from "./Saying";
-import { useRef } from "react";
-import { motion, useInView, useScroll, useTransform } from "motion/react";
+import ScrollDown from "./ScrollDown";
 
 const Intro = () => {
   // 向下滚动半屏时整体逐渐淡化消失
@@ -38,6 +39,9 @@ const Intro = () => {
 
       {/*第二屏，用来放置 一句话 的动画*/}
       <Saying />
+
+      {/*向下滚动提示*/}
+      <ScrollDown />
 
       {/*第三屏，空的，用于填充空间，给背景足够长的淡化时间（滚动）*/}
       <div className="h-[50vh]" />

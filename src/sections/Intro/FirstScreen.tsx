@@ -1,29 +1,39 @@
 "use client";
 
 import MainSection from "./MainSection";
-import ScrollDown from "./ScrollDown";
-import { motion } from "motion/react";
-import {
-  fadeInContainerVariantProps,
-  fadeInMembersVariantProps,
-} from "./animateProps";
+import { motion, useScroll, useTransform } from "motion/react";
+import { fadeInContainerVariantProps } from "./fadeInAnimateProps";
+import { useRef } from "react";
 
 const FirstScreen = () => {
+  // 向下滚动半屏时整体逐渐淡化消失
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: scrollContainerRef,
+    offset: ["start end", "end end"],
+  });
+  const fadeOutTransform = useTransform(scrollYProgress, [0.8, 1], [1, 0]);
+
   return (
     <motion.div
-      className="min-h-screen w-full flex flex-col items-center"
-      initial="hidden"
-      animate="visible"
-      variants={fadeInContainerVariantProps}
+      ref={scrollContainerRef}
+      className="h-[160vh]"
+      initial={{
+        opacity: 1,
+      }}
+      style={{
+        opacity: fadeOutTransform,
+      }}
     >
-      {/*主体内容*/}
-      <MainSection />
-
-      {/*动画延迟占位符*/}
-      <motion.div variants={fadeInMembersVariantProps} />
-
-      {/*向下滚动提示*/}
-      <ScrollDown />
+      <motion.div
+        className="min-h-screen sticky top-0 w-full flex flex-col items-center"
+        initial="hidden"
+        animate="visible"
+        variants={fadeInContainerVariantProps}
+      >
+        {/*主体内容*/}
+        <MainSection />
+      </motion.div>
     </motion.div>
   );
 };

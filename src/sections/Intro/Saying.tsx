@@ -33,7 +33,7 @@ const Saying = () => {
               initial="offscreen"
               whileInView="onscreen"
               variants={sentenceVariantProps}
-              viewport={{ once: true, amount: 0.8 }}
+              viewport={{ once: true, amount: 1.0 }}
             >
               <div className="text-4xl lg:text-5xl font-semibold text-white">
                 {mainParagraph.split("\n").map((line, i) => (

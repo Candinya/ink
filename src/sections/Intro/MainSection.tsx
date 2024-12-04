@@ -1,6 +1,6 @@
 "use client";
 
-import { fadeInMembersVariantProps } from "./animateProps";
+import { fadeInMembersVariantProps } from "./fadeInAnimateProps";
 import Image from "next/image";
 import { motion } from "motion/react";
 
