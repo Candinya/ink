@@ -8,6 +8,7 @@ import Backend from "./Backend";
 import Projects from "./Projects";
 
 import SkillContainer from "../Container";
+import ContentGrid from "../ContentGrid";
 
 const SkillDeveloper = () => (
   <SkillContainer titleLeft={"我是一名"} titleRight={"全栈开发者"}>
@@ -47,42 +48,18 @@ const SkillDeveloper = () => (
       return (
         <>
           {/*技术栈*/}
-          <motion.div
-            className="grid"
-            initial={{
-              gridTemplateRows: "0fr",
-            }}
-            style={{
-              gridTemplateRows: techStackTransform,
-            }}
-          >
-            <div className="h-full overflow-hidden">
-              <div className="pt-12 w-full flex flex-col gap-12 justify-center items-center">
-                <Frontend opacityTransform={techStackFrontendTransform} />
-                <Backend opacityTransform={techStackBackendTransform} />
-              </div>
-            </div>
-          </motion.div>
+          <ContentGrid transform={techStackTransform}>
+            <Frontend opacityTransform={techStackFrontendTransform} />
+            <Backend opacityTransform={techStackBackendTransform} />
+          </ContentGrid>
 
           {/*项目*/}
-          <motion.div
-            className="grid"
-            initial={{
-              gridTemplateRows: "0fr",
-            }}
-            style={{
-              gridTemplateRows: projectsTransform,
-            }}
-          >
-            <div className="h-full overflow-hidden">
-              <div className="pt-12 w-full flex flex-col gap-12 justify-center items-center">
-                <Projects
-                  ownOpacityTransform={projectsOwnTransform}
-                  contributeOpacityTransform={projectsContributeTransform}
-                />
-              </div>
-            </div>
-          </motion.div>
+          <ContentGrid transform={projectsTransform}>
+            <Projects
+              ownOpacityTransform={projectsOwnTransform}
+              contributeOpacityTransform={projectsContributeTransform}
+            />
+          </ContentGrid>
         </>
       );
     }}
