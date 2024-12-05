@@ -1,6 +1,7 @@
 import SectionTitle from "@/components/SectionTitle";
 import Name from "./Name";
 import Skills from "./Skills";
+import More from "./More";
 
 const About = () => {
   return (
@@ -8,6 +9,7 @@ const About = () => {
       <SectionTitle title={"关于我"} />
       <Name />
       <Skills />
+      <More />
     </div>
   );
 };
