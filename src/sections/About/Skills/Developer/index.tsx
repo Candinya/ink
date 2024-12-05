@@ -1,8 +1,11 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
+
 import Frontend from "./Frontend";
 import Backend from "./Backend";
 import Projects from "./Projects";
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
 
 const SkillDeveloper = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
