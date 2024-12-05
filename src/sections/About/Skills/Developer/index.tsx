@@ -7,81 +7,45 @@ import Frontend from "./Frontend";
 import Backend from "./Backend";
 import Projects from "./Projects";
 
-const SkillDeveloper = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: scrollContainerRef,
-  });
+import SkillContainer from "../Container";
 
-  const textFadeInTransform1 = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-  const textFadeInTransform2 = useTransform(
-    scrollYProgress,
-    [0.1, 0.2],
-    [0, 1],
-  );
+const SkillDeveloper = () => (
+  <SkillContainer titleLeft={"我是一名"} titleRight={"全栈开发者"}>
+    {(scrollYProgress) => {
+      const techStackTransform = useTransform(
+        scrollYProgress,
+        [0.25, 0.3, 0.65, 0.7],
+        ["0fr", "1fr", "1fr", "0fr"],
+      );
+      const techStackFrontendTransform = useTransform(
+        scrollYProgress,
+        [0.3, 0.4, 0.55, 0.65],
+        [0, 1, 1, 0],
+      );
+      const techStackBackendTransform = useTransform(
+        scrollYProgress,
+        [0.4, 0.5, 0.55, 0.65],
+        [0, 1, 1, 0],
+      );
 
-  const techStackTransform = useTransform(
-    scrollYProgress,
-    [0.25, 0.3, 0.65, 0.7],
-    ["0fr", "1fr", "1fr", "0fr"],
-  );
-  const techStackFrontendTransform = useTransform(
-    scrollYProgress,
-    [0.3, 0.4, 0.55, 0.65],
-    [0, 1, 1, 0],
-  );
-  const techStackBackendTransform = useTransform(
-    scrollYProgress,
-    [0.4, 0.5, 0.55, 0.65],
-    [0, 1, 1, 0],
-  );
+      const projectsTransform = useTransform(
+        scrollYProgress,
+        [0.65, 0.7],
+        ["0fr", "1fr"],
+      );
+      const projectsOwnTransform = useTransform(
+        scrollYProgress,
+        [0.7, 0.8],
+        [0, 1],
+      );
+      const projectsContributeTransform = useTransform(
+        scrollYProgress,
+        [0.8, 0.9],
+        [0, 1],
+      );
 
-  const projectsTransform = useTransform(
-    scrollYProgress,
-    [0.65, 0.7],
-    ["0fr", "1fr"],
-  );
-  const projectsOwnTransform = useTransform(
-    scrollYProgress,
-    [0.7, 0.8],
-    [0, 1],
-  );
-  const projectsContributeTransform = useTransform(
-    scrollYProgress,
-    [0.8, 0.9],
-    [0, 1],
-  );
-
-  return (
-    <div ref={scrollContainerRef} className="-mt-screen/2 h-[600vh] w-full">
-      <div className="min-h-screen max-w-3xl xl:max-w-6xl p-8 mx-auto w-full sticky top-0 flex flex-col justify-center items-center">
-        <div className="flex flex-row gap-4 text-3xl lg:text-4xl">
-          <motion.span
-            initial={{
-              opacity: 0,
-            }}
-            style={{
-              opacity: textFadeInTransform1,
-            }}
-          >
-            我是一名
-          </motion.span>
-          <motion.span
-            className="font-semibold"
-            initial={{
-              opacity: 0,
-            }}
-            style={{
-              opacity: textFadeInTransform2,
-            }}
-          >
-            全栈开发者
-          </motion.span>
-        </div>
-
-        {/*内容模块*/}
-        {/*为了实现同位置复用所以这样设计，不知道是否有更好的办法*/}
-        <div className="w-full text-xl lg:text-2xl">
+      return (
+        <>
           {/*技术栈*/}
           <motion.div
             className="grid"
@@ -119,10 +83,10 @@ const SkillDeveloper = () => {
               </div>
             </div>
           </motion.div>
-        </div>
-      </div>
-    </div>
-  );
-};
+        </>
+      );
+    }}
+  </SkillContainer>
+);
 
 export default SkillDeveloper;
