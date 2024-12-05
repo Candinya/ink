@@ -53,32 +53,32 @@ const LocalImage = ({
             // layoutId={`about-skills-devops-projects-local-image-${id}-container`}
             className="fixed top-0 bottom-0 left-0 right-0 w-screen h-screen rounded-3xl z-10"
           >
-            {/*关闭图片的覆叠层*/}
-            <motion.button
+            {/*背景加深*/}
+            <motion.div
               className="absolute top-0 left-0 h-full w-full bg-black bg-opacity-30"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2, delay: 0.1 }}
-              onClick={() => {
-                setIsOpen(false);
-              }}
             />
 
             {/*图片*/}
-            <motion.div
-              className="absolute top-0 left-0 w-full h-full p-16 overflow-clip pointer-events-none"
+            <motion.button
+              className="absolute top-0 left-0 w-full h-full p-16 overflow-y-auto"
               layoutId={`about-skills-devops-projects-local-image-${id}-image`}
+              onClick={() => {
+                setIsOpen(false);
+              }}
             >
               <Image
-                className="w-full h-full object-contain"
+                className="w-full object-contain rounded-3xl"
                 src={src}
                 alt={alt}
                 width={width}
                 height={height}
                 fill={false}
               />
-            </motion.div>
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
