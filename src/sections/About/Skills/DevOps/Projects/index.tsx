@@ -7,8 +7,8 @@ import Image from "next/image";
 import Link from "../../Link";
 import LocalImage from "./LocalImage";
 
-import PCOverviewPhoto from "./images/pc-overview.webp";
 import PCInnerPhoto from "./images/pc-inner.webp";
+import GPUServerPhoto from "./images/gpu-server.webp";
 import RackPhoto from "./images/rack.webp";
 import NyaOneScreenshot from "./images/nyaone.webp";
 
@@ -41,16 +41,16 @@ const Projects = ({ localTransform, remoteTransform }: ProjectsProps) => (
           className={
             "lg:col-span-2 rounded-t-3xl lg:rounded-tr lg:rounded-tl-3xl"
           }
-          src={PCOverviewPhoto}
-          alt={"主力机 概览"}
+          src={PCInnerPhoto}
+          alt={"主力机"}
           width={480}
           height={360}
         />
         <LocalImage
           id={"pc-inner"}
           className={"lg:col-span-2 lg:rounded-bl-3xl"}
-          src={PCInnerPhoto}
-          alt={"主力机 内部"}
+          src={GPUServerPhoto}
+          alt={"GPU 服务器"}
           width={480}
           height={360}
         />
