@@ -30,6 +30,7 @@ const LocalImage = ({
         // layoutId={`about-skills-devops-projects-local-image-${id}-container`}
         onClick={() => {
           setIsOpen(true);
+          document.body.style.overflowY = "hidden";
         }}
       >
         <div className="w-full h-full flex justify-center items-center">
@@ -69,6 +70,7 @@ const LocalImage = ({
               className="absolute top-0 left-0 w-full h-full overflow-y-auto"
               onClick={() => {
                 setIsOpen(false);
+                document.body.style.overflowY = "auto";
               }}
             >
               <motion.div
