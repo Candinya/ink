@@ -1,14 +1,13 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { useTransform } from "motion/react";
+
+import SkillContainer from "../Container";
+import ContentGrid from "../ContentGrid";
 
 import Frontend from "./Frontend";
 import Backend from "./Backend";
 import Projects from "./Projects";
-
-import SkillContainer from "../Container";
-import ContentGrid from "../ContentGrid";
 
 const SkillDeveloper = () => (
   <SkillContainer titleLeft={"我是一名"} titleRight={"全栈开发者"}>
