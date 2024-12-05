@@ -1,11 +1,11 @@
-import Intro from "@/sections/Intro";
+import Welcome from "@/sections/Welcome";
 import About from "@/sections/About";
 
 export default function Home() {
   return (
     <div className="bg-background">
       {/*引入*/}
-      <Intro />
+      <Welcome />
 
       {/*自我介绍*/}
       <About />

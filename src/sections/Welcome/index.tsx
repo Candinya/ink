@@ -7,7 +7,7 @@ import FirstScreen from "./FirstScreen";
 import Saying from "./Saying";
 import ScrollDown from "./ScrollDown";
 
-const Intro = () => {
+const Welcome = () => {
   // 向下滚动半屏时整体逐渐淡化消失
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -49,4 +49,4 @@ const Intro = () => {
   );
 };
 
-export default Intro;
+export default Welcome;
