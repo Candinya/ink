@@ -32,18 +32,20 @@ const LocalImage = ({
           setIsOpen(true);
         }}
       >
-        <motion.div
-          className="w-full h-full"
-          layoutId={`about-skills-devops-projects-local-image-${id}-image`}
-        >
-          <Image
-            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-            src={src}
-            alt={alt}
-            width={width}
-            height={height}
-          />
-        </motion.div>
+        <div className="w-full h-full flex justify-center items-center">
+          <motion.div
+            className="w-full"
+            layoutId={`about-skills-devops-projects-local-image-${id}-image`}
+          >
+            <Image
+              className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+              src={src}
+              alt={alt}
+              width={width}
+              height={height}
+            />
+          </motion.div>
+        </div>
       </motion.button>
 
       {/*点击后展开全屏展示的模态框*/}
@@ -64,20 +66,24 @@ const LocalImage = ({
 
             {/*图片*/}
             <motion.button
-              className="absolute top-0 left-0 w-full h-full p-16 overflow-y-auto"
-              layoutId={`about-skills-devops-projects-local-image-${id}-image`}
+              className="absolute top-0 left-0 w-full h-full overflow-y-auto"
               onClick={() => {
                 setIsOpen(false);
               }}
             >
-              <Image
-                className="w-full object-contain rounded-3xl"
-                src={src}
-                alt={alt}
-                width={width}
-                height={height}
-                fill={false}
-              />
+              <motion.div
+                className="w-full p-16"
+                layoutId={`about-skills-devops-projects-local-image-${id}-image`}
+              >
+                <Image
+                  className="w-full object-contain rounded-3xl"
+                  src={src}
+                  alt={alt}
+                  width={width}
+                  height={height}
+                  fill={false}
+                />
+              </motion.div>
             </motion.button>
           </motion.div>
         )}
