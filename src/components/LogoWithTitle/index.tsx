@@ -8,8 +8,14 @@ interface LogoWithTitleProps {
   link: string;
   logo: string | StaticImageData;
   title: string;
+  darkInvert?: boolean;
 }
-const LogoWithTitle = ({ link, logo, title }: LogoWithTitleProps) => (
+const LogoWithTitle = ({
+  link,
+  logo,
+  title,
+  darkInvert = false,
+}: LogoWithTitleProps) => (
   <a href={link} target="_blank" className="h-full">
     <motion.div
       className="h-full px-6 py-4 rounded-3xl border-2 border-gray-300 shadow-xl flex flex-col justify-around bg-background"
@@ -31,7 +37,7 @@ const LogoWithTitle = ({ link, logo, title }: LogoWithTitleProps) => (
           alt={title}
           width={128}
           height={128}
-          className="rounded-2xl size-20 lg:size-24 xl:size-32"
+          className={`rounded-2xl size-20 lg:size-24 xl:size-32${darkInvert ? " dark:invert" : ""}`}
         />
         <span className="font-normal lg:font-semibold text-sm md:text-base lg:text-xl">
           {title}

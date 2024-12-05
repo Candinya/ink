@@ -60,6 +60,7 @@ const ActivityPlatforms = ({
             link={"https://matrix.to/#/@candinya:nya.one"}
             logo={MatrixLogo}
             title={"即时通讯"}
+            darkInvert={true}
           />
         </li>
       </ul>
