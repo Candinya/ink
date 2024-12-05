@@ -1,9 +1,9 @@
 "use client";
 
-import SkillContainer from "../Container";
+import SkillContainer from "@/components/Container";
 import { useTransform } from "motion/react";
 
-import ContentGrid from "../ContentGrid";
+import ContentGrid from "@/components/ContentGrid";
 import HostService from "./HostService";
 import ActivityPlatforms from "./ActivityPlatforms";
 

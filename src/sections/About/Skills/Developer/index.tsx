@@ -2,8 +2,8 @@
 
 import { useTransform } from "motion/react";
 
-import SkillContainer from "../Container";
-import ContentGrid from "../ContentGrid";
+import SkillContainer from "@/components/Container";
+import ContentGrid from "@/components/ContentGrid";
 
 import Frontend from "./Frontend";
 import Backend from "./Backend";

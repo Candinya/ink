@@ -1,6 +1,6 @@
 "use client";
 
-import SkillContainer from "../Container";
+import SkillContainer from "@/components/Container";
 
 const SkillOtaku = () => (
   <SkillContainer titleLeft={"还是一名"} titleRight={"二次元阿宅"}>
