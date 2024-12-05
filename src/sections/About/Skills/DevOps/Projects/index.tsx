@@ -37,24 +37,25 @@ const Projects = ({ localTransform, remoteTransform }: ProjectsProps) => (
       </p>
       <div className="grid grid-flow-col grid-cols-1 lg:grid-cols-3 grid-rows-3 lg:grid-rows-2 gap-2 justify-center max-h-[36vh]">
         <LocalImage
-          containerClassName={"lg:col-span-2"}
-          contentClassName={"rounded-t-3xl lg:rounded-tr lg:rounded-tl-3xl"}
+          className={
+            "lg:col-span-2 rounded-t-3xl lg:rounded-tr lg:rounded-tl-3xl"
+          }
           src={PCInnerPhoto}
           alt={"主力机"}
           width={480}
           height={360}
         />
         <LocalImage
-          containerClassName={"lg:col-span-2"}
-          contentClassName={"lg:rounded-bl-3xl"}
+          className={"lg:col-span-2 lg:rounded-bl-3xl"}
           src={GPUServerPhoto}
           alt={"GPU 服务器"}
           width={480}
           height={360}
         />
         <LocalImage
-          containerClassName={"lg:row-span-2"}
-          contentClassName={"rounded-b-3xl lg:rounded-bl lg:rounded-r-3xl"}
+          className={
+            "lg:row-span-2 rounded-b-3xl lg:rounded-bl lg:rounded-r-3xl"
+          }
           src={RackPhoto}
           alt={"数据中心"}
           width={277}
