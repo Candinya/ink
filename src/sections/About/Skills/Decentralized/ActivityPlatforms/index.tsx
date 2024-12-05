@@ -5,6 +5,7 @@ import type { MotionValue } from "motion/react";
 
 import LogoWithTitle from "@/components/LogoWithTitle";
 
+import HexoLogo from "./logos/hexo.svg";
 import MisskeyLogo from "./logos/misskey.png";
 import MatrixLogo from "./logos/matrix.svg";
 
@@ -43,7 +44,7 @@ const ActivityPlatforms = ({
         <li className="h-full">
           <LogoWithTitle
             link={"https://candinya.com"}
-            logo={"https://candinya.com/images/candinya.webp"}
+            logo={HexoLogo}
             title={"博客"}
           />
         </li>
