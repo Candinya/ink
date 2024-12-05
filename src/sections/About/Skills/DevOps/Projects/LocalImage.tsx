@@ -1,8 +1,14 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { useState } from "react";
 import Image, { StaticImageData } from "next/image";
+import {
+  Dialog,
+  DialogPanel,
+  DialogTitle,
+  DialogBackdrop,
+} from "@headlessui/react";
 
 interface LocalImageProps {
   id: string;
@@ -30,7 +36,6 @@ const LocalImage = ({
         // layoutId={`about-skills-devops-projects-local-image-${id}-container`}
         onClick={() => {
           setIsOpen(true);
-          document.body.style.overflowY = "hidden";
         }}
       >
         <div className="w-full h-full flex justify-center items-center">
@@ -50,31 +55,20 @@ const LocalImage = ({
       </motion.button>
 
       {/*点击后展开全屏展示的模态框*/}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            // layoutId={`about-skills-devops-projects-local-image-${id}-container`}
-            className="fixed top-0 bottom-0 left-0 right-0 w-screen h-screen rounded-3xl z-10"
-          >
-            {/*背景加深*/}
-            <motion.div
-              className="absolute top-0 left-0 h-full w-full bg-black bg-opacity-30"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2, delay: 0.1 }}
-            />
+      <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
+        <DialogBackdrop
+          transition
+          className="fixed inset-0 bg-black bg-opacity-30 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
+        />
 
-            {/*图片*/}
-            <motion.button
-              className="absolute top-0 left-0 w-full h-full overflow-y-auto"
-              onClick={() => {
-                setIsOpen(false);
-                document.body.style.overflowY = "auto";
-              }}
+        <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
+          <div className="flex w-full min-h-full justify-center text-center items-center p-16">
+            <DialogPanel
+              transition
+              className="relative transform overflow-hidden transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
             >
               <motion.div
-                className="w-full p-16"
+                className="w-full"
                 layoutId={`about-skills-devops-projects-local-image-${id}-image`}
               >
                 <Image
@@ -86,10 +80,10 @@ const LocalImage = ({
                   fill={false}
                 />
               </motion.div>
-            </motion.button>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </DialogPanel>
+          </div>
+        </div>
+      </Dialog>
     </>
   );
 };
