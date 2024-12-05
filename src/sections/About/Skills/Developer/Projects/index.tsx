@@ -4,6 +4,7 @@ import type { MotionValue } from "motion/react";
 
 import { candyMadeURL } from "./constants";
 import CandyMade from "./CandyMade";
+import Link from "../../Link";
 
 const queryClient = new QueryClient();
 
@@ -32,15 +33,7 @@ const Projects = ({
       </QueryClientProvider>
 
       <p>
-        您可以在{" "}
-        <a
-          href={candyMadeURL}
-          target="_blank"
-          className="underline underline-offset-4 decoration-theme hover:opacity-50  transition-all duration-300"
-        >
-          CandyMade
-        </a>{" "}
-        查看完整列表。
+        您可以在 <Link href={candyMadeURL}>CandyMade</Link> 查看完整列表。
       </p>
     </motion.div>
 
