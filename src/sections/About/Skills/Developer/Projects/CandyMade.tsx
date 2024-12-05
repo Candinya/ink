@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { motion } from "motion/react";
 
 import { candyMadeURL } from "./constants";
+import LogoWithTitle from "@/components/LogoWithTitle";
 
 interface CandyMadeProjectInfo {
   id: string;
@@ -39,39 +40,11 @@ const CandyMade = () => {
     <ul className="grid grid-cols-2 lg:grid-cols-4 gap-8 px-4 w-fit mx-auto">
       {data.map((project: CandyMadeProjectInfo) => (
         <li key={project.id} className="h-full">
-          <a
-            href={`${candyMadeURL}/${project.id}`}
-            target="_blank"
-            className="h-full"
-          >
-            <motion.div
-              className="h-full px-6 py-4 rounded-3xl border-2 border-gray-300 shadow-xl flex flex-col justify-around bg-background"
-              initial={{
-                y: 0,
-              }}
-              whileHover={{
-                y: -30,
-                transition: {
-                  type: "spring",
-                  bounce: 0.4,
-                  duration: 0.6,
-                },
-              }}
-            >
-              <motion.div className="flex flex-col gap-4 items-center">
-                <Image
-                  src={`${candyMadeURL}${project.logo}`}
-                  alt={project.name}
-                  width={128}
-                  height={128}
-                  className="rounded-2xl size-20 lg:size-24 xl:size-32"
-                />
-                <span className="font-normal lg:font-semibold text-sm md:text-base lg:text-xl">
-                  {project.name}
-                </span>
-              </motion.div>
-            </motion.div>
-          </a>
+          <LogoWithTitle
+            link={`${candyMadeURL}/${project.id}`}
+            logo={`${candyMadeURL}${project.logo}`}
+            title={project.name}
+          />
         </li>
       ))}
     </ul>

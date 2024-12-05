@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import type { MotionValue } from "motion/react";
 import Image from "next/image";
 
-import Link from "../../Link";
+import Link from "@/components/Link";
 import LocalImage from "./LocalImage";
 
 import PCInnerPhoto from "./images/pc-inner.webp";

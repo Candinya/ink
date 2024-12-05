@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import type { MotionValue } from "motion/react";
-import Link from "@/sections/About/Skills/Link";
+import Link from "@/components/Link";
 
 interface FieldsProps {
   hardwareTransform: MotionValue<number>;

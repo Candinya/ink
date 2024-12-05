@@ -4,7 +4,7 @@ import type { MotionValue } from "motion/react";
 
 import { candyMadeURL } from "./constants";
 import CandyMade from "./CandyMade";
-import Link from "../../Link";
+import Link from "@/components/Link";
 
 const queryClient = new QueryClient();
 
