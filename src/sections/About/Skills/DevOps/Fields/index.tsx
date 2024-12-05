@@ -44,7 +44,7 @@ const Fields = ({ hardwareTransform, softwareTransform }: FieldsProps) => (
         opacity: softwareTransform,
       }}
     >
-      <p>并完成相关软件设施的协调：</p>
+      <p>当然也可以完成相关软件设施的协调：</p>
       <p>
         从{" "}
         <Link
