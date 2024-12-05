@@ -1,5 +1,6 @@
 import Welcome from "@/sections/Welcome";
 import About from "@/sections/About";
+import World from "@/sections/World";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <About />
 
       {/*我的世界*/}
+      <World />
 
       {/*来找我玩*/}
 

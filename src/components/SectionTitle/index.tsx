@@ -23,13 +23,13 @@ const SectionTitle = ({ title }: SectionTitleProps) => {
           style={{
             left: isNotScrollUp ? "50%" : "1rem",
             top: isNotScrollUp ? "4rem" : "1rem",
-            transform: isNotScrollUp ? "translateX(-50%)" : "none",
-            scale: isNotScrollUp ? 1 : 0.6,
+            transform: isNotScrollUp ? "translateX(-25%)" : "none",
+            scale: isNotScrollUp ? 2 : 1,
           }}
         >
           {/*标题图标*/}
           <IconSectionSign
-            className="absolute -left-12 lg:-left-14 size-12 lg:size-16 text-gray-400 transition-opacity duration-500"
+            className="absolute -left-3 size-8 text-gray-400 transition-opacity duration-500"
             style={{
               opacity: isNotScrollUp ? 0 : 1,
               transitionDelay: isNotScrollUp ? "0ms" : "800ms",
@@ -37,9 +37,7 @@ const SectionTitle = ({ title }: SectionTitleProps) => {
           />
 
           {/*标题文本*/}
-          <h2 className="px-4 lg:px-4 text-4xl lg:text-5xl font-semibold">
-            {title}
-          </h2>
+          <h2 className="px-4 lg:px-4 text-2xl font-semibold">{title}</h2>
         </div>
       </div>
     </motion.div>
