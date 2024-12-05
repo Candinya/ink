@@ -2,7 +2,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import type { MotionValue } from "motion/react";
 
-import GoLogo from "./icons/go.svg";
+import GopherLogo from "./icons/gopher.svg";
 import PostgresQLLogo from "./icons/postgresql.svg";
 import RedisLogo from "./icons/redis.svg";
 
@@ -24,7 +24,7 @@ const Backend = ({ opacityTransform }: BackendProps) => (
       <li>
         <Image
           className="size-24 lg:size-32"
-          src={GoLogo}
+          src={GopherLogo}
           alt={"Go"}
           height={128}
           width={128}
