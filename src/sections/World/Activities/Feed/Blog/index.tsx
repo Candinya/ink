@@ -95,7 +95,7 @@ const Blog = () => {
               <DateTag date={post.date} />
             </div>
             <h3 className="mt-3 text-xl font-semibold text-white group-hover:text-theme transition-colors duration-500">
-              <a href={post.link}>
+              <a href={post.link} target="_blank">
                 <span className="absolute inset-0" />
                 {post.title}
               </a>
