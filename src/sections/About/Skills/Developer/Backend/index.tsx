@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { motion } from "motion/react";
 import type { MotionValue } from "motion/react";
 
@@ -22,31 +21,17 @@ const Backend = ({ opacityTransform }: BackendProps) => (
     <span>开发后端时，我喜欢使用</span>
     <ul className="flex flex-row gap-4 items-center">
       <li>
-        <Image
-          className="size-24 lg:size-32"
-          src={GopherLogo}
-          alt={"Go"}
-          height={128}
-          width={128}
-        />
+        <img className="size-24 lg:size-32" src={GopherLogo} alt={"Go"} />
       </li>
       <li>
-        <Image
+        <img
           className="size-24 lg:size-32"
           src={PostgresQLLogo}
           alt={"PostgresQL"}
-          height={128}
-          width={128}
         />
       </li>
       <li>
-        <Image
-          className="size-24 lg:size-32"
-          src={RedisLogo}
-          alt={"Redis"}
-          height={128}
-          width={128}
-        />
+        <img className="size-24 lg:size-32" src={RedisLogo} alt={"Redis"} />
       </li>
     </ul>
   </motion.div>

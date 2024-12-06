@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef } from "react";
 import { motion, useInView, useScroll, useTransform } from "motion/react";
 import MeteorsRain from "./MeteorsRain";

@@ -1,7 +1,4 @@
-"use client";
-
 import { fadeInMembersVariants } from "./fadeInAnimateProps";
-import Image from "next/image";
 import { motion } from "motion/react";
 
 const MainSection = () => {
@@ -10,13 +7,10 @@ const MainSection = () => {
       <div className="w-full h-full lg:max-w-4xl 2xl:max-w-6xl p-8 mx-auto flex flex-col lg:flex-row-reverse justify-center lg:justify-between items-center gap-16 z-10">
         {/*头像*/}
         <motion.div variants={fadeInMembersVariants}>
-          <Image
+          <img
             src={"/avatar.webp"}
-            width={256}
-            height={256}
             className="size-36 md:size-48 lg:size-64 rounded-full ring-4 ring-white ring-opacity-30 ring-offset-zinc-950 ring-offset-4"
             alt={"Nya Candy"}
-            priority={true}
           />
         </motion.div>
 

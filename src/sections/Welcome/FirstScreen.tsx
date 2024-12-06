@@ -1,5 +1,3 @@
-"use client";
-
 import MainSection from "./MainSection";
 import { motion, useScroll, useTransform } from "motion/react";
 import { fadeInContainerVariants } from "./fadeInAnimateProps";

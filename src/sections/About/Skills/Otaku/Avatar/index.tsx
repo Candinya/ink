@@ -1,8 +1,5 @@
-"use client";
-
 import { motion } from "motion/react";
 import type { MotionValue } from "motion/react";
-import Image from "next/image";
 
 import Link from "@/components/Link";
 
@@ -74,7 +71,7 @@ const Avatar = ({
             borderRadius: imageRoundTransform,
           }}
         >
-          <Image src={AvatarBackground} alt={"背景"} width={256} height={256} />
+          <img src={AvatarBackground} alt={"背景"} />
         </motion.div>
         <motion.div
           className="order-2 z-20 overflow-clip"
@@ -89,7 +86,7 @@ const Avatar = ({
             borderRadius: imageRoundTransform,
           }}
         >
-          <Image src={AvatarDecoration} alt={"装饰"} width={256} height={256} />
+          <img src={AvatarDecoration} alt={"装饰"} />
         </motion.div>
         <motion.div
           className="order-2 z-30 overflow-clip"
@@ -103,7 +100,7 @@ const Avatar = ({
             borderRadius: imageRoundTransform,
           }}
         >
-          <Image src={AvatarCharacter} alt={"人物"} width={256} height={256} />
+          <img src={AvatarCharacter} alt={"人物"} />
         </motion.div>
       </div>
     </motion.div>

@@ -1,5 +1,3 @@
-"use client";
-
 import SkillDeveloper from "./Developer";
 import SkillDevOps from "./DevOps";
 import SkillDecentralized from "./Decentralized";

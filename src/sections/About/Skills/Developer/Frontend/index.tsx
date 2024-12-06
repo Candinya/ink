@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { motion } from "motion/react";
 import type { MotionValue } from "motion/react";
 
@@ -22,30 +21,20 @@ const Frontend = ({ opacityTransform }: FrontendProps) => (
     <span>开发前端时，我喜欢使用</span>
     <ul className="flex flex-row gap-4 items-center">
       <li>
-        <Image
-          className="size-24 lg:size-32"
-          src={ReactLogo}
-          alt={"React"}
-          height={128}
-          width={128}
-        />
+        <img className="size-24 lg:size-32" src={ReactLogo} alt={"React"} />
       </li>
       <li>
-        <Image
+        <img
           className="size-24 lg:size-32"
           src={TypeScriptLogo}
           alt={"TypeScript"}
-          height={128}
-          width={128}
         />
       </li>
       <li>
-        <Image
+        <img
           className="size-24 lg:size-32"
           src={TailwindCSSLogo}
           alt={"TailwindCSS"}
-          height={128}
-          width={128}
         />
       </li>
     </ul>

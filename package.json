@@ -1,32 +1,35 @@
 {
   "name": "ink",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
     "prepare": "husky"
   },
   "dependencies": {
     "@tabler/icons-react": "^3.24.0",
     "@tanstack/react-query": "^5.62.2",
     "canvas-confetti": "^1.9.3",
-    "motion": "12.0.0-alpha.2",
-    "next": "15.0.3",
-    "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "motion": "^11.13.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.10",
-    "postcss": "^8",
+    "autoprefixer": "^10.4.20",
+    "globals": "^15.12.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16",
+    "typescript": "~5.6.2",
+    "vite": "^6.0.1",
     "prettier": "3.4.1"
   },
   "lint-staged": {

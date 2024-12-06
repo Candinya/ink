@@ -1,5 +1,3 @@
-"use client";
-
 import { useTransform } from "motion/react";
 
 import SkillContainer from "@/components/SkillContainer";

@@ -1,5 +1,3 @@
-"use client";
-
 const HeatMap = () => {
   return <div></div>;
 };

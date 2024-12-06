@@ -1,5 +1,3 @@
-"use client";
-
 const DevelopAndSocial = () => {
   return (
     <>

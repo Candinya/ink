@@ -1,5 +1,3 @@
-"use client";
-
 import { IconChevronDown } from "@tabler/icons-react";
 import { motion } from "motion/react";
 

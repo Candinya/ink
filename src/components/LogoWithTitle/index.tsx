@@ -1,8 +1,4 @@
-"use client";
-
 import { motion } from "motion/react";
-import Image from "next/image";
-import type { StaticImageData } from "next/image";
 
 interface LogoWithTitleProps {
   link: string;
@@ -32,11 +28,9 @@ const LogoWithTitle = ({
       }}
     >
       <motion.div className="flex flex-col gap-4 items-center">
-        <Image
+        <img
           src={logo}
           alt={title}
-          width={128}
-          height={128}
           className={`rounded-2xl size-20 lg:size-24 xl:size-32${darkInvert ? " dark:invert" : ""}`}
         />
         <span className="font-normal lg:font-semibold text-sm md:text-base lg:text-xl">

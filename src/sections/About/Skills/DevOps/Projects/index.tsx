@@ -1,8 +1,5 @@
-"use client";
-
 import { motion } from "motion/react";
 import type { MotionValue } from "motion/react";
-import Image from "next/image";
 
 import Link from "@/components/Link";
 import LocalImage from "./LocalImage";
@@ -82,13 +79,10 @@ const Projects = ({ localTransform, remoteTransform }: ProjectsProps) => (
         href={"https://nya.one/@Candinya"}
         target="_blank"
       >
-        <Image
+        <img
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           src={NyaOneScreenshot}
           alt={"喵窝"}
-          width={480}
-          height={360}
-          fill={false}
         />
       </a>
     </motion.div>
