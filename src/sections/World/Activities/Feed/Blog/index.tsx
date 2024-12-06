@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { motion, type Variants } from "motion/react";
+import { IconClock } from "@tabler/icons-react";
 
 type BlogPostInfo = {
   cover: string;
@@ -92,6 +93,7 @@ const Blog = () => {
             <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
 
             <div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-gray-300">
+              <IconClock className="size-4 mr-2" />
               <DateTag date={post.date} />
             </div>
             <h3 className="mt-3 text-xl font-semibold text-white group-hover:text-theme transition-colors duration-500">
