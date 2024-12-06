@@ -1,6 +1,4 @@
-import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
-import { motion } from "motion/react";
 
 import { candyMadeURL } from "./constants";
 import LogoWithTitle from "@/components/LogoWithTitle";
