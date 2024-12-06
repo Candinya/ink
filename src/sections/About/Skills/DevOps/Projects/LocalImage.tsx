@@ -1,6 +1,6 @@
 interface LocalImageProps {
   className: string;
-  src: StaticImageData;
+  src: string;
   alt: string;
 }
 const LocalImage = ({ className, src, alt }: LocalImageProps) => (
