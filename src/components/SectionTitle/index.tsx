@@ -16,12 +16,12 @@ const SectionTitle = ({ title }: SectionTitleProps) => {
         <div ref={scrollDetectorRef} className="absolute -top-4" />
 
         {/*标题*/}
-        <div
+        <motion.div
           className="absolute top-20 transition-all duration-500 flex flex-row gap-2 items-center"
           style={{
             left: isNotScrollUp ? "50%" : "1rem",
             top: isNotScrollUp ? "4rem" : "1rem",
-            transform: isNotScrollUp ? "translateX(-25%)" : "none",
+            x: isNotScrollUp ? "-50%" : "0%",
             scale: isNotScrollUp ? 2 : 1,
           }}
         >
@@ -38,7 +38,7 @@ const SectionTitle = ({ title }: SectionTitleProps) => {
           <h2 className="px-4 lg:px-4 text-xl lg:text-2xl font-semibold">
             {title}
           </h2>
-        </div>
+        </motion.div>
       </div>
     </motion.div>
   );
