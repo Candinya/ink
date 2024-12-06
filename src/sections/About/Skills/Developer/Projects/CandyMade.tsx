@@ -13,7 +13,7 @@ interface CandyMadeProjectInfo {
 const CandyMade = () => {
   // 拉取项目信息
   const { isPending, error, data } = useQuery({
-    queryKey: ["repoData"],
+    queryKey: ["candymadeData"],
     queryFn: async () => {
       const res = await fetch(`${candyMadeURL}/data.json`);
       const allProjects: CandyMadeProjectInfo[] = await res.json();

@@ -1,12 +1,9 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { motion } from "motion/react";
 import type { MotionValue } from "motion/react";
 
 import { candyMadeURL } from "./constants";
 import CandyMade from "./CandyMade";
 import Link from "@/components/Link";
-
-const queryClient = new QueryClient();
 
 interface ProjectsProps {
   ownOpacityTransform: MotionValue<number>;
@@ -28,9 +25,7 @@ const Projects = ({
     >
       <p>我独立开发过不少项目。例如这些：</p>
 
-      <QueryClientProvider client={queryClient}>
-        <CandyMade />
-      </QueryClientProvider>
+      <CandyMade />
 
       <p>
         您可以在 <Link href={candyMadeURL}>CandyMade</Link> 查看完整列表。
