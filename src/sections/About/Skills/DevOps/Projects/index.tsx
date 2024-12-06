@@ -39,15 +39,11 @@ const Projects = ({ localTransform, remoteTransform }: ProjectsProps) => (
           }
           src={PCInnerPhoto}
           alt={"主力机"}
-          width={480}
-          height={360}
         />
         <LocalImage
           className={"lg:col-span-2 lg:rounded-bl-3xl"}
           src={GPUServerPhoto}
           alt={"GPU 服务器"}
-          width={480}
-          height={360}
         />
         <LocalImage
           className={
@@ -55,8 +51,6 @@ const Projects = ({ localTransform, remoteTransform }: ProjectsProps) => (
           }
           src={RackPhoto}
           alt={"数据中心"}
-          width={277}
-          height={720}
         />
       </div>
     </motion.div>
