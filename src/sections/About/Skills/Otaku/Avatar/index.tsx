@@ -55,7 +55,7 @@ const Avatar = ({
         opacity: imageTransform,
       }}
     >
-      <p>这是各部分的组合过程：</p>
+      <p>再稍稍加上一点巧思，就像这样：</p>
 
       <div className="flex flex-row">
         <motion.div
