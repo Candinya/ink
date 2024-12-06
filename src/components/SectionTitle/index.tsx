@@ -37,7 +37,9 @@ const SectionTitle = ({ title }: SectionTitleProps) => {
           />
 
           {/*标题文本*/}
-          <h2 className="px-4 lg:px-4 text-2xl font-semibold">{title}</h2>
+          <h2 className="px-4 lg:px-4 text-xl lg:text-2xl font-semibold">
+            {title}
+          </h2>
         </div>
       </div>
     </motion.div>
