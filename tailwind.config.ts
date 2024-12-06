@@ -17,10 +17,6 @@ export default {
         "screen/4": "25vh",
         "screen/2": "50vh",
       },
-      aspectRatio: {
-        "4/3": "4 / 3",
-        "3/4": "3 / 4",
-      },
     },
   },
   plugins: [],
