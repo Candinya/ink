@@ -1,43 +1,8 @@
 import { motion } from "motion/react";
-import type { Variants } from "motion/react";
-import { ActivityCountAPIResponse } from "../types.ts";
 
-const colorMapGithub = [
-  "bg-green-200",
-  "bg-green-300",
-  "bg-green-400",
-  "bg-green-500",
-  "bg-green-600",
-];
-
-const colorMapMisskey = [
-  "bg-blue-200",
-  "bg-blue-300",
-  "bg-blue-400",
-  "bg-blue-500",
-  "bg-blue-600",
-];
-
-const colorMappingCalc = (val: number, max: number, into: number) =>
-  Math.floor((Math.log((val / max) * 100) / Math.log(100)) * into);
-
-const wrapperVariants: Variants = {
-  offscreen: {},
-  onscreen: {
-    transition: {
-      staggerChildren: 0.01,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  offscreen: {
-    opacity: 0,
-  },
-  onscreen: {
-    opacity: 1,
-  },
-};
+import type { ActivityCountAPIResponse } from "../types.ts";
+import { wrapperVariants, itemVariants } from "./animate.ts";
+import { colorMapGithub, colorMapMisskey, colorMappingCalc } from "./colors.ts";
 
 interface HeatMapProps {
   data: ActivityCountAPIResponse;
