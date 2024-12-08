@@ -47,12 +47,12 @@ const Fields = ({ hardwareTransform, softwareTransform }: FieldsProps) => (
         从{" "}
         <Link
           href={
-            "https://code.nya.work/nyawork/init-server/src/branch/main/init.sh"
+            "https://candinya.com/posts/manage-cloudflare-dns-with-terraform/"
           }
         >
-          使用自动化脚本
+          使用自动化工具
         </Link>{" "}
-        管理服务器，
+        管理基础设施，
       </p>
       <p>
         到{" "}
@@ -67,11 +67,7 @@ const Fields = ({ hardwareTransform, softwareTransform }: FieldsProps) => (
       </p>
       <p>
         还可以{" "}
-        <Link
-          href={
-            "https://github.com/RSS3-Network/Payment-Processor/blob/8c125ef5af82c95710fdeebd57a77d6ae15bd3d7/deploy/docker-compose.dev.yml"
-          }
-        >
+        <Link href={"https://candinya.com/posts/my-special-log-collect-trick/"}>
           使用 Docker Compose
         </Link>{" "}
         来更加方便地管理应用。
