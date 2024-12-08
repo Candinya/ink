@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "motion/react";
+import { IconBrandGithub } from "@tabler/icons-react";
 
 import ProjectCard from "./ProjectCard.tsx";
 import { wrapperVariants, itemVariants } from "./animate.ts";
@@ -25,19 +26,27 @@ const GitHub = () => {
   }
 
   return (
-    <motion.ul
-      className="flex flex-wrap gap-4 w-full justify-center"
-      initial="offscreen"
-      whileInView="onscreen"
-      variants={wrapperVariants}
-      viewport={{ once: true, amount: 1.0 }}
-    >
-      {data?.map((item) => (
-        <motion.li key={item} variants={itemVariants}>
-          <ProjectCard id={item} />
-        </motion.li>
-      ))}
-    </motion.ul>
+    <div className="relative px-4 py-8 border-2 border-gray-500/50 border-dotted rounded-t-3xl rounded-b-lg overflow-clip z-0">
+      {/*背景图*/}
+      <div className="bg-violet-500/25 size-96 rounded-full absolute -bottom-24 -right-16 -z-10 pointer-events-none" />
+
+      {/*GitHub 图标*/}
+      <IconBrandGithub className="text-gray-50/25 size-64 absolute -bottom-4 -right-0 -z-10 pointer-events-none" />
+
+      <motion.ul
+        className="flex flex-wrap gap-4 w-full justify-center"
+        initial="offscreen"
+        whileInView="onscreen"
+        variants={wrapperVariants}
+        viewport={{ once: true, amount: 0.8 }}
+      >
+        {data?.map((item) => (
+          <motion.li key={item} variants={itemVariants}>
+            <ProjectCard id={item} />
+          </motion.li>
+        ))}
+      </motion.ul>
+    </div>
   );
 };
 
