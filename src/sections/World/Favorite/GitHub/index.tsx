@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
+import { motion } from "motion/react";
 
 import ProjectCard from "./ProjectCard.tsx";
+import { wrapperVariants, itemVariants } from "./animate.ts";
 
 // 直接的 LayOut 有点单调，有没有其他什么有趣一点的东西？
 
@@ -23,13 +25,19 @@ const GitHub = () => {
   }
 
   return (
-    <ul className="flex flex-wrap gap-4 w-full justify-center">
+    <motion.ul
+      className="flex flex-wrap gap-4 w-full justify-center"
+      initial="offscreen"
+      whileInView="onscreen"
+      variants={wrapperVariants}
+      viewport={{ once: true, amount: 1.0 }}
+    >
       {data?.map((item) => (
-        <li key={item}>
+        <motion.li key={item} variants={itemVariants}>
           <ProjectCard id={item} />
-        </li>
+        </motion.li>
       ))}
-    </ul>
+    </motion.ul>
   );
 };
 
