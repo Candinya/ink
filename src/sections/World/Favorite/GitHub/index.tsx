@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 
 import ProjectCard from "./ProjectCard.tsx";
 
+// 直接的 LayOut 有点单调，有没有其他什么有趣一点的东西？
+
 const GitHub = () => {
   // 拉取最新活动
   const { isPending, error, data } = useQuery<string[]>({
