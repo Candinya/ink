@@ -67,72 +67,77 @@ const HeatMap = ({ data }: HeatMapProps) => {
         {/*计数天*/}
         {Array(data.days)
           .fill(null)
-          .map((_, i) => (
-            <motion.div
-              key={i}
-              className="rounded border border-gray-400 size-4 bg-gray-100 overflow-clip"
-              variants={itemVariants}
-            >
-              {
-                data.github.day[i] > 0 && data.misskey.day[i] > 0 ? ( // 都有
-                  <div
-                    style={{
-                      transform: "translateX(-3px) translateY(-15px)",
-                    }}
-                  >
-                    <div className="-rotate-45">
-                      <div
-                        className={`${
-                          colorMapGithub[
-                            colorMappingCalc(
-                              data.github.day[i],
-                              data.github.max,
-                              colorMapGithub.length,
-                            )
-                          ]
-                        } size-6`}
-                      />
-                      <div
-                        className={`${
-                          colorMapMisskey[
-                            colorMappingCalc(
-                              data.misskey.day[i],
-                              data.misskey.max,
-                              colorMapMisskey.length,
-                            )
-                          ]
-                        } size-6`}
-                      />
+          .map((_, i) => {
+            const todayIndex = data.days - i - 1; // 数据从新到旧，图表从旧到新，图表的第一个是数据的最后一天。因为数据下标从 0 开始，所以用总数减去下标后还要再减一得到真实的索引序号。
+
+            return (
+              <motion.div
+                key={i}
+                className="rounded border border-gray-400 size-4 bg-gray-100 overflow-clip"
+                variants={itemVariants}
+              >
+                {
+                  data.github.day[todayIndex] > 0 &&
+                  data.misskey.day[todayIndex] > 0 ? ( // 都有
+                    <div
+                      style={{
+                        transform: "translateX(-3px) translateY(-15px)",
+                      }}
+                    >
+                      <div className="-rotate-45">
+                        <div
+                          className={`${
+                            colorMapGithub[
+                              colorMappingCalc(
+                                data.github.day[todayIndex],
+                                data.github.max,
+                                colorMapGithub.length,
+                              )
+                            ]
+                          } size-6`}
+                        />
+                        <div
+                          className={`${
+                            colorMapMisskey[
+                              colorMappingCalc(
+                                data.misskey.day[todayIndex],
+                                data.misskey.max,
+                                colorMapMisskey.length,
+                              )
+                            ]
+                          } size-6`}
+                        />
+                      </div>
                     </div>
-                  </div>
-                ) : data.github.day[i] > 0 ? ( // 仅有 GitHub
-                  <div
-                    className={`${
-                      colorMapGithub[
-                        colorMappingCalc(
-                          data.github.day[i],
-                          data.github.max,
-                          colorMapGithub.length,
-                        )
-                      ]
-                    } w-full h-full`}
-                  />
-                ) : data.misskey.day[i] > 0 ? ( // 仅有 Misskey
-                  <div
-                    className={`${
-                      colorMapMisskey[
-                        colorMappingCalc(
-                          data.misskey.day[i],
-                          data.misskey.max,
-                          colorMapMisskey.length,
-                        )
-                      ]
-                    } w-full h-full`}
-                  />
-                ) : null // 什么都没有
-              }
-            </motion.div>
-          ))}
+                  ) : data.github.day[todayIndex] > 0 ? ( // 仅有 GitHub
+                    <div
+                      className={`${
+                        colorMapGithub[
+                          colorMappingCalc(
+                            data.github.day[todayIndex],
+                            data.github.max,
+                            colorMapGithub.length,
+                          )
+                        ]
+                      } w-full h-full`}
+                    />
+                  ) : data.misskey.day[todayIndex] > 0 ? ( // 仅有 Misskey
+                    <div
+                      className={`${
+                        colorMapMisskey[
+                          colorMappingCalc(
+                            data.misskey.day[todayIndex],
+                            data.misskey.max,
+                            colorMapMisskey.length,
+                          )
+                        ]
+                      } w-full h-full`}
+                    />
+                  ) : null // 什么都没有
+                }
+              </motion.div>
+            );
+          })}
       </div>
     </motion.div>
   );
