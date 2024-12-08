@@ -21,7 +21,7 @@ const letterVariants: Variants = {
 const Saying = () => {
   // 定义文本
   const mainParagraph = "愿人人皆可到达内心中的应许之地。";
-  const subParagraph = "Nya Candy\n2024.12.03";
+  const subParagraph = "2024.12.03";
 
   return (
     <div className="h-[150vh] -mt-screen/2">
