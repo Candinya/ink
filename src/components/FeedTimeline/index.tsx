@@ -98,11 +98,11 @@ const FeedTimeline = ({ isPending, error, data }: FeedTimelineProps) => {
                     : "ring-gray-200"
               } ${
                 item.type === "develop"
-                  ? "bg-green-500 dark:bg-green-950"
+                  ? "bg-green-500"
                   : item.type === "social"
-                    ? "bg-blue-500 dark:bg-blue-950"
-                    : "bg-gray-500 dark:bg-gray-950"
-              } bg-opacity-5 hover:bg-opacity-10 transition-colors`}
+                    ? "bg-blue-500"
+                    : "bg-gray-500"
+              } bg-opacity-5 hover:bg-opacity-10 dark:bg-opacity-15 dark:hover:bg-opacity-30 transition-colors`}
             >
               <div className="flex justify-between gap-x-4">
                 <time
