@@ -1,4 +1,4 @@
-import { fadeInMembersVariants } from "./fadeInAnimateProps";
+import { fadeInMembersVariants } from "./animate.ts";
 import { motion } from "motion/react";
 
 const MainSection = () => {

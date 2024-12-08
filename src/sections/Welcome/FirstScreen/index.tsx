@@ -1,6 +1,6 @@
 import MainSection from "./MainSection";
 import { motion, useScroll, useTransform } from "motion/react";
-import { fadeInContainerVariants } from "./fadeInAnimateProps";
+import { fadeInContainerVariants } from "./animate.ts";
 import { useRef } from "react";
 
 const FirstScreen = () => {
