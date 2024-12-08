@@ -4,7 +4,7 @@ import WorldContainer from "@/components/WorldContainer";
 
 const Favorite = () => (
   <WorldContainer title={"我心水的"}>
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div className="grid grid-cols-1 gap-12">
       {/*GitHub Stars*/}
       <GitHub />
 

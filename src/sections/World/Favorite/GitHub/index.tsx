@@ -23,15 +23,13 @@ const GitHub = () => {
   }
 
   return (
-    <div className="max-h-screen/2 overflow-y-auto">
-      <ul className="flex flex-wrap gap-4 w-full">
-        {data?.map((item) => (
-          <li key={item}>
-            <ProjectCard id={item} />
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul className="flex flex-wrap gap-4 w-full justify-center">
+      {data?.map((item) => (
+        <li key={item}>
+          <ProjectCard id={item} />
+        </li>
+      ))}
+    </ul>
   );
 };
 
