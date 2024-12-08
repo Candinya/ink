@@ -1,5 +1,13 @@
 import { fadeInMembersVariants } from "./animate.ts";
 import { motion } from "motion/react";
+import {
+  IconBrandGithub,
+  IconMail,
+  IconMessageCircle,
+  IconRss,
+  IconShare,
+} from "@tabler/icons-react";
+import QuickNav from "@/sections/Welcome/FirstScreen/QuickNav.tsx";
 
 const MainSection = () => {
   return (
@@ -35,6 +43,38 @@ const MainSection = () => {
           >
             循此前行，终至尘星
           </motion.h2>
+
+          {/*快捷导航*/}
+          <motion.div
+            variants={fadeInMembersVariants}
+            className="flex flex-row gap-3 justify-center"
+          >
+            <QuickNav
+              link={"https://candinya.com"}
+              color={"bg-orange-500"}
+              icon={IconRss}
+            />
+            <QuickNav
+              link={"https://nya.one/@Candinya"}
+              color={"bg-sky-500"}
+              icon={IconShare}
+            />
+            <QuickNav
+              link={"https://matrix.to/#/@candinya:nya.one"}
+              color={"bg-lime-500"}
+              icon={IconMessageCircle}
+            />
+            <QuickNav
+              link={"https://github.com/Candinya"}
+              color={"bg-violet-500"}
+              icon={IconBrandGithub}
+            />
+            <QuickNav
+              link={"mailto:hello@candinya.com"}
+              color={"bg-amber-500"}
+              icon={IconMail}
+            />
+          </motion.div>
         </div>
       </div>
     </div>
