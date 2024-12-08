@@ -1,11 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { motion, type Variants } from "motion/react";
-import { IconClock } from "@tabler/icons-react";
+import { IconCategory, IconClock } from "@tabler/icons-react";
 
 type BlogPostInfo = {
   cover: string;
   date: string;
   title: string;
+  categories: string[];
   link: string;
 };
 
@@ -93,9 +94,17 @@ const Blog = () => {
             <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
             <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
 
-            <div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm/6 text-gray-300">
-              <IconClock className="size-4 mr-2" />
-              <DateTag date={post.date} />
+            <div className="flex flex-wrap gap-4 overflow-hidden text-sm/6 text-gray-300">
+              <div className="flex gap-2 items-center">
+                <IconClock className="size-4" />
+                <DateTag date={post.date} />
+              </div>
+              {post.categories.length > 0 && (
+                <div className="flex items-center gap-2">
+                  <IconCategory className="size-4" />
+                  <div className="flex gap-x-2.5">{post.categories[0]}</div>
+                </div>
+              )}
             </div>
             <h3 className="mt-3 text-xl font-semibold text-white group-hover:text-theme transition-colors duration-500">
               <a href={post.link} target="_blank">
