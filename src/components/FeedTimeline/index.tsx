@@ -1,5 +1,5 @@
 import { motion, type Variants } from "motion/react";
-import { IconCode, IconSocial } from "@tabler/icons-react";
+import { IconCode, IconShare } from "@tabler/icons-react";
 
 export type FeedItem = {
   date: Date;
@@ -126,7 +126,7 @@ const FeedTimeline = ({ isPending, error, data }: FeedTimelineProps) => {
                     {item.type === "develop" ? (
                       <IconCode className="size-4" />
                     ) : item.type === "social" ? (
-                      <IconSocial className="size-4" />
+                      <IconShare className="size-4" />
                     ) : (
                       ""
                     )}
