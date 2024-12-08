@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
+
 import FeedTimeline from "@/components/FeedTimeline";
 import type { FeedItem } from "@/components/FeedTimeline";
+import WorldContainer from "@/components/WorldContainer";
 
 type GithubFeedItem = { date: string; title: string; link: string };
 type MisskeyFeedItem = { date: string; content: string; link: string };
@@ -45,7 +47,7 @@ const Activities = () => {
   });
 
   return (
-    <div className="mt-16">
+    <>
       {/*桌面端样式，两条轴*/}
       <div className="hidden lg:grid grid-cols-2 gap-12">
         {/*开发动态*/}
@@ -92,19 +94,14 @@ const Activities = () => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
 const DevelopAndSocial = () => (
-  <div className="mt-32 mx-auto max-w-7xl px-6 lg:px-8">
-    <div className="mx-auto max-w-2xl text-center">
-      <h3 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-        最新活动
-      </h3>
-    </div>
+  <WorldContainer title={"最新活动"}>
     <Activities />
-  </div>
+  </WorldContainer>
 );
 
 export default DevelopAndSocial;

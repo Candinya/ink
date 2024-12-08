@@ -1,51 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { motion, type Variants } from "motion/react";
+import { motion } from "motion/react";
 import { IconCategory, IconClock } from "@tabler/icons-react";
 
-type BlogPostInfo = {
-  cover: string;
-  date: string;
-  title: string;
-  categories: string[];
-  link: string;
-};
+import WorldContainer from "@/components/WorldContainer";
 
-const wrapperVariants: Variants = {
-  offscreen: {},
-  onscreen: {
-    transition: {
-      staggerChildren: 0.5,
-    },
-  },
-};
-
-const postVariants: Variants = {
-  offscreen: {
-    opacity: 0,
-    y: 10,
-    transition: {
-      type: "spring",
-      duration: 0.5,
-    },
-  },
-  onscreen: {
-    opacity: 1,
-    y: 0,
-  },
-};
-
-interface DateTagProps {
-  date: string;
-}
-const DateTag = ({ date }: DateTagProps) => {
-  const parsedDate = new Date(date);
-  return (
-    <span>
-      {parsedDate.getFullYear()} 年 {parsedDate.getMonth() + 1} 月{" "}
-      {parsedDate.getDate()} 日
-    </span>
-  );
-};
+import DateTag from "./DateTag.tsx";
+import type { BlogPostInfo } from "./types.ts";
+import { postVariants, wrapperVariants } from "./animate.ts";
 
 const BlogPosts = () => {
   // 拉取最新文章
@@ -68,7 +29,7 @@ const BlogPosts = () => {
 
   return (
     <motion.div
-      className="mx-auto mt-16 grid auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:grid-cols-3"
+      className="mx-auto grid auto-rows-fr grid-cols-1 gap-8 lg:mx-0 lg:grid-cols-3"
       initial="offscreen"
       whileInView="onscreen"
       variants={wrapperVariants}
@@ -113,14 +74,9 @@ const BlogPosts = () => {
 };
 
 const Blog = () => (
-  <div className="mx-auto max-w-7xl px-6 lg:px-8">
-    <div className="mx-auto text-center">
-      <h3 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
-        最新文章
-      </h3>
-    </div>
+  <WorldContainer title={"最新文章"}>
     <BlogPosts />
-  </div>
+  </WorldContainer>
 );
 
 export default Blog;

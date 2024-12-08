@@ -1,18 +1,17 @@
 import GitHub from "./GitHub";
-import Misskey from "./Misskey";
 import Music from "./Music";
+import WorldContainer from "@/components/WorldContainer";
 
 const Favorite = () => (
-  <>
-    {/*GitHub Stars*/}
-    <GitHub />
+  <WorldContainer title={"我心水的"}>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      {/*GitHub Stars*/}
+      <GitHub />
 
-    {/*Misskey Reactions*/}
-    <Misskey />
-
-    {/*音乐播放*/}
-    <Music />
-  </>
+      {/*音乐播放*/}
+      <Music />
+    </div>
+  </WorldContainer>
 );
 
 export default Favorite;
