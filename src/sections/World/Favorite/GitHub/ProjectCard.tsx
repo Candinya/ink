@@ -5,7 +5,7 @@ interface ProjectCardProps {
 }
 const ProjectCard = ({ id }: ProjectCardProps) => (
   <a href={`https://github.com/${id}`} target="_blank">
-    <div className="px-4 py-2 rounded-xl text-nowrap border-2 border-gray-300/20 bg-slate-200 bg-opacity-5 hover:bg-opacity-10 transition-colors flex flex-row gap-2 items-center">
+    <div className="px-4 py-2 rounded-xl text-nowrap border-2 border-gray-300/20 bg-slate-500 bg-opacity-5 hover:bg-opacity-10 dark:bg-opacity-15 dark:hover:bg-opacity-30 transition-colors flex flex-row gap-2 items-center">
       <IconStarFilled className="size-4 text-yellow-300" />
       <span>{id}</span>
     </div>

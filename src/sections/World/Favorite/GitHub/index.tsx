@@ -31,7 +31,7 @@ const GitHub = () => {
       <div className="bg-violet-500/25 size-96 rounded-full absolute -bottom-24 -right-16 -z-10 pointer-events-none" />
 
       {/*GitHub 图标*/}
-      <IconBrandGithub className="text-gray-50/25 size-64 absolute -bottom-4 -right-0 -z-10 pointer-events-none" />
+      <IconBrandGithub className="text-background size-64 absolute -bottom-4 -right-0 -z-10 pointer-events-none" />
 
       <motion.ul
         className="flex flex-wrap gap-4 w-full justify-center"
