@@ -13,6 +13,9 @@ export default {
         "screen/4": "25vh",
         "screen/2": "50vh",
       },
+      maxHeight: {
+        "screen/2": "50vh",
+      },
       margin: {
         "screen/4": "25vh",
         "screen/2": "50vh",
