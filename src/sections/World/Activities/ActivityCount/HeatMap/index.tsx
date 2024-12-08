@@ -55,11 +55,9 @@ const HeatMap = ({ data }: HeatMapProps) => {
       <div className="grid grid-rows-7 grid-flow-col gap-1 w-fit mx-auto">
         {/*星期填充物*/}
         {Array(
-          (new Date(
+          new Date(
             new Date().getTime() - data.days * 86400_000, // 计算起始天
-          ).getDay() + // 获得起始天是星期几
-            6) % // 先 -1 将首日修正为周一（getDay 函数的返回从周日(0)开始，周一是 1 ，周二是 2 ，周日是 0），为了确保结果为正数所以 +7 ，综合下来就是 -1+7=+6
-            7, // 取模以避免填充一个没用的周
+          ).getDay(),
         )
           .fill(null)
           .map((_, i) => (
