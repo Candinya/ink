@@ -75,7 +75,7 @@ const MeteorsRain = () => {
   return (
     <div
       ref={containerRef}
-      className="w-screen h-screen fixed top-0 left-0 flex items-center overflow-hidden z-0 opacity-75" // 定宽定高
+      className="w-screen h-screen fixed top-0 left-0 flex items-center overflow-hidden z-0 opacity-75 pointer-events-none" // 定宽定高
     >
       {meteors.map((meteor) => (
         <Meter key={meteor.initialX + "meteor-idx"} meteorOptions={meteor} />

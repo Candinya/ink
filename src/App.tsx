@@ -1,8 +1,10 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import Welcome from "@/sections/Welcome";
 import About from "@/sections/About";
 import World from "@/sections/World";
-
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Footer from "@/sections/Footer";
+import Player from "@/sections/Player";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -16,6 +18,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="bg-background">
+        {/*播放器*/}
+        <Player />
+
         {/*引入*/}
         <Welcome />
 
@@ -25,11 +30,8 @@ function App() {
         {/*我的世界*/}
         <World />
 
-        {/*来找我玩*/}
-
         {/*页脚*/}
-
-        {/*播放器*/}
+        <Footer />
 
         {/*特效*/}
       </div>

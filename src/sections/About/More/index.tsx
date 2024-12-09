@@ -19,7 +19,7 @@ const More = () => {
       ref={scrollContainerRef}
       className="h-[200vh] w-full -mt-screen/2 -mb-screen/2"
     >
-      <div className="sticky top-0 w-full min-h-screen max-w-3xl xl:max-w-6xl p-8 mx-auto flex flex-col justify-center items-center">
+      <div className="sticky top-0 w-full min-h-screen max-w-3xl xl:max-w-6xl p-8 mx-auto flex flex-col justify-center items-center pointer-events-none">
         <div className="flex flex-col gap-6 text-3xl lg:text-4xl text-center">
           <motion.div
             initial={{

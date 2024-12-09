@@ -2,7 +2,7 @@ import SectionTitle from "@/components/SectionTitle";
 
 import Activities from "./Activities";
 import Favorite from "./Favorite";
-import Experience from "./Experience";
+import FindMe from "./FindMe";
 
 const World = () => (
   <div className="mt-4 w-full flex flex-col justify-center items-center">
@@ -11,7 +11,7 @@ const World = () => (
     <div className="w-full p-8 lg:p-12 mt-20">
       <Activities />
       <Favorite />
-      <Experience />
+      <FindMe />
     </div>
   </div>
 );

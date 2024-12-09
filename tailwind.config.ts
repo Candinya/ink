@@ -20,6 +20,9 @@ export default {
         "screen/4": "25vh",
         "screen/2": "50vh",
       },
+      animation: {
+        "spin-player": "spin 12s linear infinite",
+      },
     },
   },
   plugins: [],

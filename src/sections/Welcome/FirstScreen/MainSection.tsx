@@ -47,7 +47,7 @@ const MainSection = () => {
           {/*快捷导航*/}
           <motion.div
             variants={fadeInMembersVariants}
-            className="flex flex-row gap-3 justify-center"
+            className="flex flex-row gap-3 justify-center pointer-events-auto"
           >
             <QuickNav
               link={"https://candinya.com"}

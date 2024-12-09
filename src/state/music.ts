@@ -1,0 +1,20 @@
+import { atomWithQuery } from "jotai-tanstack-query";
+import { atom } from "jotai";
+
+export type MusicProps = {
+  url: string;
+  name: string;
+  artist?: string;
+  album?: string;
+  cover?: string;
+};
+
+export const musicAtom = atomWithQuery<MusicProps[]>(() => ({
+  queryKey: ["music"],
+  queryFn: async () => {
+    const res = await fetch(`https://music.candinya.com/index`);
+    return await res.json();
+  },
+}));
+
+export const playerAtom = atom<MusicProps | null>(null);

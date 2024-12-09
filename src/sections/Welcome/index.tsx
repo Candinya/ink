@@ -21,7 +21,7 @@ const Welcome = () => {
   return (
     <motion.div
       ref={scrollContainerRef}
-      className="w-full h-full bg-zinc-950"
+      className="w-full h-full bg-zinc-950 pointer-events-none"
       initial={{
         opacity: 1,
       }}
@@ -43,7 +43,7 @@ const Welcome = () => {
       <ScrollDown />
 
       {/*第三屏，空的，用于填充空间，给背景足够长的淡化时间（滚动）*/}
-      <div className="h-screen/2" />
+      <div className="h-screen/2 pointer-events-none" />
     </motion.div>
   );
 };
