@@ -23,7 +23,6 @@ const CandyMade = () => {
       }
       return selectedProjects;
     },
-    refetchOnWindowFocus: false, // 一般不会在一次浏览中发生变化，没必要动它
   });
 
   if (isPending) {
