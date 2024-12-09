@@ -23,7 +23,7 @@ const Projects = ({
         opacity: ownOpacityTransform,
       }}
     >
-      <p>我独立开发过不少项目。例如这些：</p>
+      <p>我会写一些自己喜欢的项目，例如这些：</p>
 
       <CandyMade />
 
