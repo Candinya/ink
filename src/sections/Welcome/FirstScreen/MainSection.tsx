@@ -51,27 +51,27 @@ const MainSection = () => {
           >
             <QuickNav
               link={"https://candinya.com"}
-              color={"bg-orange-500"}
+              color={"bg-orange-600 hover:bg-orange-500"}
               icon={IconRss}
             />
             <QuickNav
               link={"https://nya.one/@Candinya"}
-              color={"bg-sky-500"}
+              color={"bg-sky-600 hover:bg-sky-500"}
               icon={IconShare}
             />
             <QuickNav
               link={"https://matrix.to/#/@candinya:nya.one"}
-              color={"bg-lime-500"}
+              color={"bg-lime-600 hover:bg-lime-500"}
               icon={IconMessageCircle}
             />
             <QuickNav
               link={"https://github.com/Candinya"}
-              color={"bg-violet-500"}
+              color={"bg-violet-600 hover:bg-violet-500"}
               icon={IconBrandGithub}
             />
             <QuickNav
               link={"mailto:hello@candinya.com"}
-              color={"bg-amber-500"}
+              color={"bg-amber-600 hover:bg-amber-500"}
               icon={IconMail}
             />
           </motion.div>

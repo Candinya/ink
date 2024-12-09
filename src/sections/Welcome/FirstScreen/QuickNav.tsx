@@ -7,7 +7,7 @@ interface QuickNavProps {
 }
 const QuickNav = ({ link, color, icon: Icon }: QuickNavProps) => (
   <a
-    className={`p-2 rounded-full bg-opacity-60 hover:bg-opacity-90 transition-colors duration-300 ${color}`}
+    className={`p-2 rounded-full transition-colors duration-300 text-white ${color}`}
     href={link}
     target="_blank"
   >
