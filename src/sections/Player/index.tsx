@@ -184,10 +184,7 @@ const Player = () => {
 
       {/*播放器本体*/}
       <div className="fixed left-2 bottom-2 opacity-45 hover:opacity-100 transition-opacity duration-300">
-        <div
-          className="size-24 rounded-full bg-zinc-900 relative cursor-pointer"
-          onClick={togglePlay}
-        >
+        <div className="size-24 rounded-full bg-zinc-900 relative">
           {/*封面*/}
           <div
             className={`absolute w-full h-full p-1.5 overflow-clip ${
@@ -205,7 +202,10 @@ const Player = () => {
 
           {/*播放/停止按钮*/}
           <div className="absolute w-full h-full flex items-center justify-center text-white">
-            <div className="bg-zinc-900 p-1.5 rounded-full">
+            <div
+              className="bg-zinc-900 p-1.5 rounded-full cursor-pointer"
+              onClick={togglePlay}
+            >
               {isLoading ? (
                 <IconDots className="animate-pulse" />
               ) : isPlaying ? (
