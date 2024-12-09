@@ -1,4 +1,5 @@
 export const colorMapGithub = [
+  "bg-green-100",
   "bg-green-200",
   "bg-green-300",
   "bg-green-400",
@@ -7,6 +8,7 @@ export const colorMapGithub = [
 ];
 
 export const colorMapMisskey = [
+  "bg-blue-100",
   "bg-blue-200",
   "bg-blue-300",
   "bg-blue-400",
