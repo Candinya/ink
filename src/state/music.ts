@@ -17,4 +17,5 @@ export const musicAtom = atomWithQuery<MusicProps[]>(() => ({
   },
 }));
 
-export const playerAtom = atom<MusicProps | null>(null);
+export const playerStateAtom = atom<MusicProps | null>(null);
+export const autoPlayAtom = atom(false);

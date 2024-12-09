@@ -18,9 +18,6 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="bg-background">
-        {/*播放器*/}
-        <Player />
-
         {/*引入*/}
         <Welcome />
 
@@ -32,6 +29,9 @@ function App() {
 
         {/*页脚*/}
         <Footer />
+
+        {/*播放器*/}
+        <Player />
 
         {/*特效*/}
       </div>

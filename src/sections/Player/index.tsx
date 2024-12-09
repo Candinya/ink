@@ -1,19 +1,23 @@
 import { useAtom } from "jotai";
 import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 
-import { musicAtom, playerAtom } from "@/state/music.ts";
+import { musicAtom, playerStateAtom, autoPlayAtom } from "@/state/music.ts";
 import {
   IconDots,
+  IconLayoutListFilled,
   IconPlayerPauseFilled,
   IconPlayerPlayFilled,
+  IconX,
 } from "@tabler/icons-react";
 
 // 选项
 const FREQ_BIN_COUNT = 256;
 
 const Player = () => {
-  const [{ isPending, isError }] = useAtom(musicAtom);
-  const [playerState, setPlayerState] = useAtom(playerAtom);
+  const [{ data: allMusic, isPending, isError }] = useAtom(musicAtom);
+  const [playerState, setPlayerState] = useAtom(playerStateAtom);
+  const [autoPlayState, setAutoPlayState] = useAtom(autoPlayAtom);
 
   const canvasWrapperRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -30,6 +34,7 @@ const Player = () => {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isShowingMusicList, setIsShowingMusicList] = useState(false);
 
   const flushEventId = useRef(0);
 
@@ -134,6 +139,24 @@ const Player = () => {
     audioRef.current!.addEventListener("canplay", () => {
       setIsLoading(false);
     });
+    audioRef.current!.addEventListener("ended", () => {
+      // 切换下一首
+      if (allMusic && playerState) {
+        const curIndex = allMusic.findIndex((m) => m.url === playerState.url);
+        if (curIndex && curIndex >= 0) {
+          let nextIndex = curIndex + 1;
+          if (nextIndex >= allMusic.length) {
+            nextIndex = 0; // 回到第一首
+            setAutoPlayState(false); // 避免循环
+          } else {
+            setAutoPlayState(true); // 自动续播
+          }
+
+          // 切换
+          setPlayerState(allMusic[nextIndex]);
+        }
+      }
+    });
   };
 
   useEffect(() => {
@@ -153,7 +176,9 @@ const Player = () => {
 
       // 播放新的音乐
       audioRef.current.src = playerState.url;
-      audioRef.current.play();
+      if (autoPlayState) {
+        audioRef.current.play();
+      }
     }
   }, [playerState]);
 
@@ -183,8 +208,8 @@ const Player = () => {
       </div>
 
       {/*播放器本体*/}
-      <div className="fixed left-2 bottom-2 opacity-45 hover:opacity-100 transition-opacity duration-300">
-        <div className="size-24 rounded-full bg-zinc-900 relative">
+      <div className="fixed left-2 bottom-2 group select-none">
+        <div className="size-24 rounded-full bg-gray-200 dark:bg-zinc-900 relative opacity-45 group-hover:opacity-100 transition-opacity duration-300">
           {/*封面*/}
           <div
             className={`absolute w-full h-full p-1.5 overflow-clip ${
@@ -201,9 +226,9 @@ const Player = () => {
           </div>
 
           {/*播放/停止按钮*/}
-          <div className="absolute w-full h-full flex items-center justify-center text-white">
+          <div className="absolute w-full h-full flex items-center justify-center">
             <div
-              className="bg-zinc-900 p-1.5 rounded-full cursor-pointer"
+              className="bg-gray-200 dark:bg-zinc-900 p-1.5 rounded-full cursor-pointer"
               onClick={togglePlay}
             >
               {isLoading ? (
@@ -216,6 +241,59 @@ const Player = () => {
             </div>
           </div>
         </div>
+
+        {/*歌单管理按钮*/}
+        <div
+          className={`bg-gray-200 dark:bg-zinc-900 p-1.5 absolute -top-2 -right-2 transition-opacity duration-300 rounded-full cursor-pointer ${
+            isShowingMusicList ? "" : "opacity-0 group-hover:opacity-100"
+          }`}
+          onClick={() => setIsShowingMusicList(!isShowingMusicList)}
+        >
+          {isShowingMusicList ? (
+            <IconX className="size-3" />
+          ) : (
+            <IconLayoutListFilled className="size-3" />
+          )}
+        </div>
+
+        {/*歌单*/}
+        <AnimatePresence>
+          {isShowingMusicList && (
+            <motion.div
+              className="absolute bottom-24 left-24 bg-gray-200 dark:bg-zinc-900 w-96 max-h-72 overflow-y-auto p-2 rounded-lg"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+            >
+              <div className="w-full">
+                <ul className="divide-y divide-gray-500/60">
+                  {allMusic.map((music) => (
+                    <li
+                      key={music.url}
+                      className={`flex flex-row justify-between items-center cursor-pointer hover:bg-sky-500/30 transition-colors duration-300 px-2 py-1 ${
+                        playerState?.url === music.url ? "bg-pink-500/30" : ""
+                      }`}
+                      onClick={() => {
+                        setAutoPlayState(true);
+                        setPlayerState(music);
+                      }}
+                    >
+                      <span className="text-sm flex flex-row gap-1.5 items-center">
+                        {playerState?.url === music.url && (
+                          <IconPlayerPlayFilled className="size-3" />
+                        )}
+                        {music.name}
+                      </span>
+                      <span className="text-xs text-right font-light text-gray-400">
+                        {music.artist}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );
