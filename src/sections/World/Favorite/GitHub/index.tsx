@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "motion/react";
-import { IconBrandGithub } from "@tabler/icons-react";
+import { IconBrandGithub, IconCirclePlusFilled } from "@tabler/icons-react";
 
 import ProjectCard from "./ProjectCard.tsx";
 import { wrapperVariants, itemVariants } from "./animate.ts";
@@ -45,6 +45,13 @@ const GitHub = () => {
             <ProjectCard id={item} />
           </motion.li>
         ))}
+        <motion.li variants={itemVariants}>
+          <ProjectCard
+            id={"Candinya?tab=stars"}
+            icon={IconCirclePlusFilled}
+            text={"查看全部"}
+          />
+        </motion.li>
       </motion.ul>
     </div>
   );
