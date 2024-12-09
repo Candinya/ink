@@ -14,5 +14,7 @@ export const colorMapMisskey = [
   "bg-blue-600",
 ];
 
+const log100 = Math.log(100);
+
 export const colorMappingCalc = (val: number, max: number, into: number) =>
-  Math.floor((Math.log((val / max) * 100) / Math.log(100)) * into); // 使用对数函数压小一点差距，避免浓的太浓淡的太淡
+  Math.floor((Math.log((val / max) * 100 + 1) / log100) * into); // 使用对数函数压小一点差距，避免浓的太浓淡的太淡
