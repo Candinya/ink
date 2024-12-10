@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { musicAtom, playerStateAtom, autoPlayAtom } from "@/state/music.ts";
 import {
   IconDots,
-  IconLayoutListFilled,
+  IconListNumbers,
   IconPlayerPauseFilled,
   IconPlayerPlayFilled,
   IconX,
@@ -252,7 +252,7 @@ const Player = () => {
           {isShowingMusicList ? (
             <IconX className="size-3" />
           ) : (
-            <IconLayoutListFilled className="size-3" />
+            <IconListNumbers className="size-3" />
           )}
         </div>
 
