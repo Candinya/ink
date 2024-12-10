@@ -11,6 +11,8 @@ import {
 
 import { musicAtom, playerStateAtom, autoPlayAtom } from "@/state/music.ts";
 
+// 频谱处理动效部分参考 https://github.com/Candinya/auviz_vue/blob/main/src/components/Viz.vue
+
 // 选项
 const FREQ_BIN_COUNT = 256;
 
