@@ -31,7 +31,7 @@ const LogoWithTitle = ({
         <img
           src={logo}
           alt={title}
-          className={`rounded-2xl size-20 lg:size-24 xl:size-32${darkInvert ? " dark:invert" : ""}`}
+          className={`rounded-2xl object-contain size-20 lg:size-24 xl:size-32${darkInvert ? " dark:invert" : ""}`}
         />
         <span className="font-normal lg:font-semibold text-sm md:text-base lg:text-xl">
           {title}

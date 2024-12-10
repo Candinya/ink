@@ -38,7 +38,7 @@ const ActivityPlatforms = ({
       }}
     >
       <p>这些是我主要的活动平台：</p>
-      <ul className="flex flex-row gap-8 px-4 py-8 justify-center">
+      <ul className="flex flex-col sm:flex-row gap-8 px-4 py-8 justify-center">
         <li className="h-full">
           <LogoWithTitle
             link={"https://candinya.com"}
