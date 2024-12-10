@@ -21,7 +21,7 @@ const Welcome = () => {
   return (
     <motion.div
       ref={scrollContainerRef}
-      className="w-full h-full bg-zinc-950 pointer-events-none"
+      className="w-full h-full bg-zinc-950 pointer-events-none relative z-30"
       initial={{
         opacity: 1,
       }}
