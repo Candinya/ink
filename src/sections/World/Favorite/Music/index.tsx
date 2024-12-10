@@ -21,7 +21,7 @@ const Music = () => {
   }
 
   return (
-    <div className="relative px-4 py-8 border-2 border-gray-500/50 border-dotted rounded-b-3xl rounded-t-lg overflow-clip z-0">
+    <div className="relative px-2 py-4 sm:px-4 sm:py-8 border-2 border-gray-500/50 border-dotted rounded-b-3xl rounded-t-lg overflow-clip z-0">
       {/*背景图*/}
       <div className="bg-pink-500/25 size-96 rounded-full absolute -bottom-24 -right-16 -z-10 pointer-events-none" />
 
@@ -29,7 +29,7 @@ const Music = () => {
       <IconVinyl className="text-background size-64 absolute -bottom-4 -right-0 -z-10 pointer-events-none" />
 
       <motion.ul
-        className="flex flex-wrap gap-4 w-full justify-center"
+        className="flex flex-wrap gap-2 sm:gap-4 w-full justify-center"
         initial="offscreen"
         whileInView="onscreen"
         variants={wrapperVariants}
