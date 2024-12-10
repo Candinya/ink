@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import { candyMadeURL } from "./constants";
 import LogoWithTitle from "@/components/LogoWithTitle";
+import { randomPick } from "@/utils/randomPick.ts";
 
 interface CandyMadeProjectInfo {
   id: string;
@@ -12,16 +13,9 @@ const CandyMade = () => {
   // 拉取项目信息
   const { isPending, error, data } = useQuery({
     queryKey: ["candymadeData"],
-    queryFn: async () => {
+    queryFn: async (): Promise<CandyMadeProjectInfo[]> => {
       const res = await fetch(`${candyMadeURL}/data.json`);
-      const allProjects: CandyMadeProjectInfo[] = await res.json();
-      // 随机取出 4 个项目
-      const selectedProjects = [];
-      for (let i = 0; i < 4 && allProjects.length > 0; i++) {
-        const selectedIndex = Math.floor(Math.random() * allProjects.length);
-        selectedProjects.push(...allProjects.splice(selectedIndex, 1));
-      }
-      return selectedProjects;
+      return await res.json();
     },
   });
 
@@ -36,7 +30,7 @@ const CandyMade = () => {
 
   return (
     <ul className="grid grid-cols-2 lg:grid-cols-4 gap-8 px-4 w-fit mx-auto">
-      {data.map((project: CandyMadeProjectInfo) => (
+      {randomPick(data, 4).map((project: CandyMadeProjectInfo) => (
         <li key={project.id} className="h-full">
           <LogoWithTitle
             link={`${candyMadeURL}/${project.id}`}
