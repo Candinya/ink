@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 interface LogoWithTitleProps {
   link: string;
-  logo: string | StaticImageData;
+  logo: string;
   title: string;
   darkInvert?: boolean;
 }
