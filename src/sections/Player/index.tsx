@@ -202,7 +202,7 @@ const Player = () => {
       {/*背景动态条*/}
       <div
         ref={canvasWrapperRef}
-        className="fixed bottom-0 left-0 right-0 w-screen h-36 opacity-5 pointer-events-none"
+        className="fixed bottom-0 left-0 right-0 w-screen h-36 opacity-20 dark:opacity-5 pointer-events-none"
       >
         <canvas ref={canvasRef} />
       </div>
