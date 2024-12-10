@@ -71,7 +71,7 @@ const MainSection = () => {
             />
             <QuickNav
               link={"mailto:hello@candinya.com"}
-              color={"bg-amber-600 hover:bg-amber-500"}
+              color={"bg-red-600 hover:bg-red-500"}
               icon={IconMail}
             />
           </motion.div>
