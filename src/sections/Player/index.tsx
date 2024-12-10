@@ -1,8 +1,6 @@
 import { useAtom } from "jotai";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-
-import { musicAtom, playerStateAtom, autoPlayAtom } from "@/state/music.ts";
 import {
   IconDots,
   IconListNumbers,
@@ -10,6 +8,8 @@ import {
   IconPlayerPlayFilled,
   IconX,
 } from "@tabler/icons-react";
+
+import { musicAtom, playerStateAtom, autoPlayAtom } from "@/state/music.ts";
 
 // 选项
 const FREQ_BIN_COUNT = 256;
@@ -21,7 +21,7 @@ const Player = () => {
 
   const canvasWrapperRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const cctx = useRef<CanvasRenderingContext2D | null>(null);
+  const canvasContext = useRef<CanvasRenderingContext2D | null>(null);
   const canvasSize = useRef<{ width: number; height: number }>({
     width: 0,
     height: 0,
@@ -47,7 +47,7 @@ const Player = () => {
     canvasRef.current!.width = canvasSize.current.width;
     canvasRef.current!.height = canvasSize.current.height;
 
-    cctx.current = canvasRef.current!.getContext("2d");
+    canvasContext.current = canvasRef.current!.getContext("2d");
   };
 
   const initAudioAnalyser = () => {
@@ -66,7 +66,7 @@ const Player = () => {
     audioAnalyser.current.connect(audioContext.destination);
 
     // 初始化分析器
-    audioAnalyser.current.fftSize = FREQ_BIN_COUNT << 1;
+    audioAnalyser.current.fftSize = FREQ_BIN_COUNT << 1; // 奈奎斯特采样定律
   };
 
   const render = () => {
@@ -74,7 +74,7 @@ const Player = () => {
     audioAnalyser.current!.getByteFrequencyData(dataArray.current);
 
     // 清空 canvas
-    cctx.current!.clearRect(
+    canvasContext.current!.clearRect(
       0,
       0,
       canvasSize.current.width,
@@ -87,8 +87,8 @@ const Player = () => {
     // 绘制频率数据
     for (let i = 0; i < barsCount; i++) {
       const currentDb = dataArray.current[i] / 256;
-      cctx.current!.fillStyle = `hsl(${(i / barsCount) * 360}, 100%, 64%)`;
-      cctx.current!.fillRect(
+      canvasContext.current!.fillStyle = `hsl(${(i / barsCount) * 360}, 100%, 64%)`;
+      canvasContext.current!.fillRect(
         widthPerBin * i,
         (1 - currentDb) * canvasSize.current.height,
         widthPerBin * 0.6,
@@ -139,7 +139,7 @@ const Player = () => {
       // 切换下一首
       if (allMusic && playerState) {
         const curIndex = allMusic.findIndex((m) => m.url === playerState.url);
-        if (curIndex && curIndex >= 0) {
+        if (curIndex >= 0) {
           let nextIndex = curIndex + 1;
           if (nextIndex >= allMusic.length) {
             nextIndex = 0; // 回到第一首
@@ -150,7 +150,7 @@ const Player = () => {
 
           // 切换
           setPlayerState(allMusic[nextIndex]);
-        }
+        } // 否则我也不知道发生了什么（播放了一首不在歌单里的音乐？）
       }
     });
   };
@@ -179,7 +179,13 @@ const Player = () => {
   }, [playerState]);
 
   const togglePlay = () => {
-    if (!!audioRef.current && !isLoading) {
+    if (!audioRef.current) {
+      // 尚未初始化，则播放第一首
+      if (allMusic?.length) {
+        setAutoPlayState(true);
+        setPlayerState(allMusic[0]);
+      }
+    } else if (!isLoading) {
       if (isPlaying) {
         audioRef.current.pause();
       } else {
