@@ -222,7 +222,7 @@ const Player = () => {
 
       {/*播放器本体*/}
       <div className="fixed left-2 bottom-2 group select-none z-20">
-        <div className="size-24 rounded-full bg-gray-200 dark:bg-zinc-900 relative opacity-45 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="size-24 rounded-full bg-gray-200 dark:bg-zinc-900 relative opacity-45 group-hover:opacity-100 transition-opacity duration-300 delay-700 group-hover:delay-0">
           {/*封面*/}
           <div
             className={`absolute w-full h-full p-1.5 overflow-clip ${
