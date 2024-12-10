@@ -1,5 +1,6 @@
 import { useAtom } from "jotai";
-import { useEffect, useRef, useState } from "react";
+import { useAtomCallback } from "jotai/utils";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import {
   IconDots,
@@ -117,6 +118,31 @@ const Player = () => {
     }
   };
 
+  // 切换下一首
+  const playNext = useAtomCallback(
+    useCallback((get) => {
+      const { data: currAllMusic } = get(musicAtom);
+      const currPlayerState = get(playerStateAtom);
+      if (currAllMusic && currPlayerState) {
+        const currIndex = currAllMusic.findIndex(
+          (m) => m.url === currPlayerState.url,
+        );
+        if (currIndex >= 0) {
+          let nextIndex = currIndex + 1;
+          if (nextIndex >= currAllMusic.length) {
+            nextIndex = 0; // 回到第一首
+            setAutoPlayState(false); // 避免循环
+          } else {
+            setAutoPlayState(true); // 自动续播
+          }
+
+          // 切换
+          setPlayerState(currAllMusic[nextIndex]);
+        } // 否则我也不知道发生了什么（播放了一首不在歌单里的音乐？）
+      }
+    }, []),
+  );
+
   const bindAudioEvents = () => {
     audioRef.current!.addEventListener("pause", () => {
       setIsPlaying(false);
@@ -137,24 +163,7 @@ const Player = () => {
     audioRef.current!.addEventListener("canplay", () => {
       setIsLoading(false);
     });
-    audioRef.current!.addEventListener("ended", () => {
-      // 切换下一首
-      if (allMusic && playerState) {
-        const curIndex = allMusic.findIndex((m) => m.url === playerState.url);
-        if (curIndex >= 0) {
-          let nextIndex = curIndex + 1;
-          if (nextIndex >= allMusic.length) {
-            nextIndex = 0; // 回到第一首
-            setAutoPlayState(false); // 避免循环
-          } else {
-            setAutoPlayState(true); // 自动续播
-          }
-
-          // 切换
-          setPlayerState(allMusic[nextIndex]);
-        } // 否则我也不知道发生了什么（播放了一首不在歌单里的音乐？）
-      }
-    });
+    audioRef.current!.addEventListener("ended", playNext);
   };
 
   useEffect(() => {
