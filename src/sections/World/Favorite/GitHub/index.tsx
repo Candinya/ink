@@ -38,7 +38,7 @@ const GitHub = () => {
         initial="offscreen"
         whileInView="onscreen"
         variants={wrapperVariants}
-        viewport={{ once: true, amount: 0.8 }}
+        viewport={{ once: true }}
       >
         {data?.map((item) => (
           <motion.li key={item} variants={itemVariants}>

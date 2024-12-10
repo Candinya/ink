@@ -33,7 +33,7 @@ const BlogPosts = () => {
       initial="offscreen"
       whileInView="onscreen"
       variants={wrapperVariants}
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true }}
     >
       {data.map((post: BlogPostInfo) => (
         <motion.article

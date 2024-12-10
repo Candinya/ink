@@ -13,7 +13,7 @@ const HeatMap = ({ data }: HeatMapProps) => (
     initial="offscreen"
     whileInView="onscreen"
     variants={wrapperVariants}
-    viewport={{ once: true, amount: 0.8 }}
+    viewport={{ once: true }}
   >
     {/*热力图*/}
     <div className="grid grid-rows-7 grid-flow-col gap-1 w-fit mx-auto">

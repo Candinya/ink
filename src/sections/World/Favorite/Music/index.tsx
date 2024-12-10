@@ -33,7 +33,7 @@ const Music = () => {
         initial="offscreen"
         whileInView="onscreen"
         variants={wrapperVariants}
-        viewport={{ once: true, amount: 0.8 }}
+        viewport={{ once: true }}
       >
         {randomPick(musicList, 50).map((item) => (
           <motion.li key={item.url} variants={itemVariants}>
