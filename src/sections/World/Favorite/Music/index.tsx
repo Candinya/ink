@@ -3,6 +3,7 @@ import { IconVinyl } from "@tabler/icons-react";
 import { motion } from "motion/react";
 
 import { musicAtom } from "@/state/music.ts";
+import { randomPick } from "@/utils/randomPick.ts";
 
 import { itemVariants, wrapperVariants } from "./animate.ts";
 import MusicCard from "./MusicCard.tsx";
@@ -34,7 +35,7 @@ const Music = () => {
         variants={wrapperVariants}
         viewport={{ once: true, amount: 0.8 }}
       >
-        {musicList?.slice(0, 50).map((item) => (
+        {randomPick(musicList, 50).map((item) => (
           <motion.li key={item.url} variants={itemVariants}>
             <MusicCard music={item} />
           </motion.li>

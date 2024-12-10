@@ -28,8 +28,6 @@ const Player = () => {
   });
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  const audioContext = useRef<AudioContext | null>(null);
   const audioAnalyser = useRef<AnalyserNode | null>(null);
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -57,17 +55,15 @@ const Player = () => {
     const AudioContextProvider = // @ts-ignore
       window.AudioContext || window.webkitAudioContext;
 
-    audioContext.current = new AudioContextProvider();
+    const audioContext = new AudioContextProvider();
 
     // 创建元素
-    const source = audioContext.current!.createMediaElementSource(
-      audioRef.current!,
-    );
-    audioAnalyser.current = audioContext.current!.createAnalyser();
+    const source = audioContext.createMediaElementSource(audioRef.current!);
+    audioAnalyser.current = audioContext.createAnalyser();
 
     // 连接链路
     source.connect(audioAnalyser.current!);
-    audioAnalyser.current.connect(audioContext.current!.destination);
+    audioAnalyser.current.connect(audioContext.destination);
 
     // 初始化分析器
     audioAnalyser.current.fftSize = FREQ_BIN_COUNT << 1;
