@@ -24,7 +24,7 @@ const PlatformCard = ({
     </div>
 
     <div className="absolute w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-      <div className="w-full h-full flex justify-center items-center text-2xl md:text-3xl lg:text-5xl">
+      <div className="w-full h-full flex justify-center items-center text-base sm:text-2xl md:text-3xl lg:text-5xl p-2">
         {text}
       </div>
     </div>
