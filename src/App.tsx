@@ -32,8 +32,6 @@ function App() {
 
         {/*播放器*/}
         <Player />
-
-        {/*特效*/}
       </div>
     </QueryClientProvider>
   );
