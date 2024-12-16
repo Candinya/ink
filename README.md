@@ -1,50 +1,39 @@
-# React + TypeScript + Vite
+# ink
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 如果写一本关于自己的书，最重要的第一件事，一定是给最趁手的钢笔，灌上最心爱的墨水。
 
-Currently, two official plugins are available:
+## 使用说明
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+这个项目需要使用一些来自其他项目的数据作为依赖，或您也可以根据相关格式自行封装需要使用到的数据：
 
-## Expanding the ESLint configuration
+- 音乐数据 来自 [local-audio-lib](https://github.com/Candinya/local-audio-lib)
+- 项目数据 来自 [CandyMade](https://github.com/Candinya/CandyMade)
+- 活动数据（动态和计数） 来自 [ink-bottle](https://github.com/Candinya/ink-bottle)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+最终构建出的结果为纯静态单页面网站 (SPA) ，可以托管在各种 Pages 服务中。
 
-- Configure the top-level `parserOptions` property like this:
+## 致谢
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
+### 灵感来源
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- https://innei.in/
+- https://alikia2x.com/
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
+### 依赖
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
-```
+- React
+- Vite
+- TailwindCSS
+- Tabler Icons
+- Motion
+- Jotai
+- TanStack Query
+
+## 开源授权
+
+- 项目的代码部分基于 AGPL v3 开源，附带有以下 CC 限制：
+  1. (NC) 禁止用于商业：包括但不仅限于将此项目用于 非盈利的个人主页 之外的用途，或是以此为模板为客户提供商业服务等商业行为。
+  2. (BY) 禁止修改或删除页脚底部的 `由 Ink 强力驱动` 行。您可以根据自己的需要调整其他部分（例如针对站点的版权声明）
+- 项目的 **媒体资源** 为版权所有产物，在使用此项目时请替换掉这些资源。
+
+如果您有超出此授权的使用需要，请联系获取商业授权。

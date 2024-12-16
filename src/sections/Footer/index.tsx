@@ -16,8 +16,8 @@ const Footer = () => (
           <span className="flex flex-row gap-1 items-center">
             <IconSparkles className="size-4" />
             <span>
-              灵感来源 <Link href={"https://innei.in/"} text={"Innei's"} /> &{" "}
-              <Link href={"https://alikia2x.com/"} text={"寒寒's"} />
+              由 <Link href={"https://github.com/Candinya/ink"} text={"Ink"} />{" "}
+              强力驱动
             </span>
           </span>
         </div>
