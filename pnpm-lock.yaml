@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  '@jridgewell/gen-mapping': 0.3.5
-
 importers:
 
   .:
