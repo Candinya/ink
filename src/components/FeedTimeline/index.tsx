@@ -133,7 +133,7 @@ const FeedTimeline = ({ isPending, error, data }: FeedTimelineProps) => {
                   </span>
                 </div>
               </div>
-              <p className="text-sm/6 text-gray-500 dark:text-gray-300">
+              <p className="text-sm/6 text-gray-500 dark:text-gray-300 break-all">
                 {item.text}
               </p>
             </a>
