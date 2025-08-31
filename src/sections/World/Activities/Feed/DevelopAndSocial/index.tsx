@@ -10,7 +10,7 @@ type MisskeyFeedItem = { date: string; content: string; link: string };
 const githubItemMap = (item: GithubFeedItem): FeedItem => ({
   date: new Date(item.date),
   text: item.title,
-  link: item.link,
+  link: new URL(item.link, "https://github.com").toString(),
   type: "develop",
 });
 
