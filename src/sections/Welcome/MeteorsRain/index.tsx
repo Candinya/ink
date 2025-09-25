@@ -110,7 +110,7 @@ const Meter = ({ meteorOptions }: MeteorProps) => (
       delay: meteorOptions.delay || 0,
       repeatDelay: meteorOptions.repeatDelay || 0,
     }}
-    className={`absolute left-0 top-20 m-auto w-px rounded-full bg-gradient-to-t from-sky-500 via-purple-500 to-transparent ${meteorOptions.className}`}
+    className={`absolute left-0 top-20 m-auto w-px rounded-full bg-linear-to-t from-sky-500 via-purple-500 to-transparent ${meteorOptions.className}`}
   />
 );
 

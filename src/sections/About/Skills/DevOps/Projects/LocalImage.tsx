@@ -5,7 +5,9 @@ interface LocalImageProps {
 }
 const LocalImage = ({ className, src, alt }: LocalImageProps) => {
   return (
-    <div className={`w-full h-full rounded overflow-clip group ${className}`}>
+    <div
+      className={`w-full h-full rounded-sm overflow-clip group ${className}`}
+    >
       <img
         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         src={src}

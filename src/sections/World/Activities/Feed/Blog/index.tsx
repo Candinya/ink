@@ -46,7 +46,7 @@ const BlogPosts = () => {
             src={post.cover}
             className="absolute inset-0 -z-10 size-full object-cover group-hover:scale-110 transition-transform duration-500"
           />
-          <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
+          <div className="absolute inset-0 -z-10 bg-linear-to-t from-gray-900 via-gray-900/40" />
           <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
 
           <div className="flex flex-wrap gap-4 overflow-hidden text-sm/6 text-gray-300">

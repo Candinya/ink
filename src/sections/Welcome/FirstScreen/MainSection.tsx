@@ -30,7 +30,7 @@ const MainSection = () => {
             className="text-5xl md:text-6xl lg:text-7xl font-bold text-white"
           >
             寻
-            <span className="bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-teal-500 via-sky-500 to-indigo-500">
+            <span className="bg-clip-text bg-no-repeat text-transparent bg-linear-to-r py-4 from-teal-500 via-sky-500 to-indigo-500">
               喵
             </span>
             之旅
