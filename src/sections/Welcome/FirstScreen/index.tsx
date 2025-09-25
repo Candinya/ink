@@ -15,7 +15,7 @@ const FirstScreen = () => {
   return (
     <motion.div
       ref={scrollContainerRef}
-      className="h-[160vh]"
+      className="h-[120vh]"
       initial={{
         opacity: 1,
       }}
