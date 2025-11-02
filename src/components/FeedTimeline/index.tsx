@@ -98,11 +98,11 @@ const FeedTimeline = ({ isPending, error, data }: FeedTimelineProps) => {
                     : "ring-gray-200"
               } ${
                 item.type === "develop"
-                  ? "bg-green-500"
+                  ? "bg-green-500/5 hover:bg-green-500/10 dark:bg-green-500/15 dark:hover:bg-green-500/30"
                   : item.type === "social"
-                    ? "bg-blue-500"
-                    : "bg-gray-500"
-              } bg-opacity-5 hover:bg-opacity-10 dark:bg-opacity-15 dark:hover:bg-opacity-30 transition-colors`}
+                    ? "bg-blue-500/5 hover:bg-blue-500/10 dark:bg-blue-500/15 dark:hover:bg-blue-500/30"
+                    : "bg-gray-500/5 hover:bg-gray-500/10 dark:bg-gray-500/15 dark:hover:bg-gray-500/30"
+              } transition-colors`}
             >
               <div className="flex justify-between gap-x-4">
                 <time
