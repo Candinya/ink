@@ -13,7 +13,7 @@ const PlatformCard = ({
   link,
 }: PlatformCardProps) => (
   <a
-    className={`w-full h-full rounded-lg relative group ${className}`}
+    className={`flex w-full h-full rounded-lg relative group ${className}`}
     href={link}
     target="_blank"
   >
