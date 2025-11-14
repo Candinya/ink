@@ -35,7 +35,7 @@ const FindMe = () => {
   return (
     <div ref={scrollContainerRef}>
       <WorldContainer title={"来找我玩"}>
-        <div className="mx-auto max-w-md md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
+        <div className="mx-auto md:mx-[10%] 2xl:mx-auto max-w-md md:max-w-4xl lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
           <div className="grid grid-rows-3 grid-cols-3 gap-2 sm:gap-4 md:gap-6 aspect-square text-white">
             <motion.div
               className="col-span-2"
