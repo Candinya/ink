@@ -12,7 +12,7 @@ export type MusicProps = {
 export const musicAtom = atomWithQuery<MusicProps[]>(() => ({
   queryKey: ["music"],
   queryFn: async () => {
-    const res = await fetch(`https://music.candinya.com/index`);
+    const res = await fetch(`https://music.candinya.xyz/index`);
     return await res.json();
   },
 }));
